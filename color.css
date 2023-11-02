@@ -1,17 +1,29 @@
 body{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-.espace1{
-    width: 5%;
-    height: 45px;
+header{
+    display: flex;
+    background-color: #000;
+    color: #fff;
+    justify-content: space-around;
+    padding: 10px;
 }
-#ep1{
-    height: 30px;
+:is(header, div:first-child) img{
+    border-radius: 20pc;
+    background-color: #fff;
+    margin: 0 10px;
+    border: 1px solid;
 }
-.espace{
-    width: 5%;
-    height: 30px;
+:is(header, div:first-child) p{
+    font-size: 1em;
+    text-transform: capitalize;
+    font-weight: bold;
+
+}
+header div:first-child {
+    display: flex;
 }
 .color{
     width: 90%;
