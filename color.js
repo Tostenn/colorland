@@ -29,10 +29,10 @@ color.onclick = function(){
     copier.style.display = 'block'
 }
 color.onmousedown = () => {
-    color.style.width = '94%'
+    color.style.width = '100%'
 }
 color.onmouseup = () => {
-    color.style.width = '90%'
+    color.style.width = '100%'
 }
 r.onkeyup = () =>{
     x = r.value

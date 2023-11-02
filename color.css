@@ -8,64 +8,110 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
-header{
+footer,header{
     display: flex;
     background-color: #000;
+    flex-wrap: wrap;
     color: #fff;
     justify-content: space-around;
     padding: 10px;
 }
-:is(header, div:first-child) img{
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+:is(header  div:first-child,footer > div:first-child) img{
     border-radius: 20pc;
     background-color: #fff;
     margin: 0 10px;
-    border: 1px solid;
+    transition: background cubic-bezier(0.55, 0.055, 0.675, 0.19) ;
 }
-:is(header, div:first-child) p{
+:is(header  div:first-child,footer > div:first-child) p{
     font-size: 1em;
-    text-transform: capitalize;
+    text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 3px;
     font-family: 'Pacifico-Regular';
 }
-header div:first-child {
+:is(header)  div,footer .container div:first-child{
     display: flex;
+    align-items: center;
+}
+header div:last-child button {
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0.5em;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+main{
+    width: 90%;
+    margin: 25px auto;
+    background-color: #25262a;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 15px;
 }
 .color{
+    margin: 25px auto;
+    height: 400px;
     width: 90%;
     transition: all 1s;
     background-color: red;
-    box-shadow: 0 0px 30px black;
+    box-shadow: 0 0px 20px black ;
     border-radius: 15px;
-    /* display: none; */
+    overflow: hidden;
+    position: relative;
 }
-.barre{
-    width: 100%;
-    height: 10px;
-    /* overflow: hidden; */
-    background-color: rgb(184, 140, 224);
+.copier{
+    display: block;
+    position: absolute;
+    bottom: -70px;
+    right: 0;
+    margin: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0px 5px black ;
+    color: #fff;
+    font-weight: bold;
+    font-family: Pacifico-Regular;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    border: 1px solid #25262a;
+    font-size: 1em;
+    padding: 0.5em;
+    transition: all .5s;
+    animation: copitext .6s forwards;
+    opacity: 0;
 }
-.barre-copi{
-    display: none;
-    width: 15%;
-    text-align: center;
-    /* border: 1px solid black; */
-    background-color: black;
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-    border-radius: 15px;
-    transform: translate(250%,-12px);
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: rgb(230, 64, 146);
-    box-shadow: 0 0 15px rgb(230, 64, 146);
-    cursor: pointer;
+@keyframes copitext {
+    100%{
+        bottom: 0;
+        opacity: 1;
+    }
+}
+.color::after{
+    content: 'click me';
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    color: #ffffffa4;
+    transform: translate(-50%,-50%);
+    animation: colortext .6s forwards;
+    opacity: 0;
+}
+@keyframes colortext {
+    100%{
+        top: 50%;
+        opacity: 1;
+    }
 }
 .align{
     height: 150px;
     transform: translate(0,0px);
+}
+main .copier:hover {
+    background-color: #25262a;
 }
 .r,.g,.b{
     width: 26%;
@@ -192,4 +238,45 @@ input:invalid{
     z-index: 455;
     display: none;
     
+}
+
+footer .container{
+    width: 40%;
+}
+footer .container .des{
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+}
+footer h3{
+
+    text-transform: capitalize;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+footer a .item{
+    font-family:Arial, Helvetica, sans-serif ;
+    margin: 5px 0;
+}
+footer a .item:hover{
+    text-decoration: underline;
+}
+@media screen and (max-width:590px) {
+    
+    footer {
+        flex-direction: column;
+        padding-left: 20px;
+    }
+    footer > div{
+        width: 100%;
+    }
+    footer .link-group{
+        margin-left: 20px;
+        width: 90%;
+    }
+    footer a  .item{
+        padding-left: 20px;
+
+    }
+    footer .container .des{
+        width: 100%;
+    }
 }
