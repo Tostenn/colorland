@@ -2,6 +2,11 @@
     font-family: 'Pacifico-Regular';
     src: url(/Pacifico/Pacifico-Regular.ttf) format('opentype');
 }
+html{
+    --red:#dc3545;
+    --bleu:#0d6efd;
+    --green:#198754;
+}
 
 body{
     margin: 0;
@@ -58,7 +63,7 @@ main{
     height: 400px;
     width: 90%;
     transition: all 1s;
-    background-color: red;
+    background-color: #1a8654;
     box-shadow: 0 0px 20px black ;
     border-radius: 15px;
     overflow: hidden;
@@ -106,37 +111,50 @@ main{
         opacity: 1;
     }
 }
-.align{
-    height: 150px;
-    transform: translate(0,0px);
-}
 main .copier:hover {
     background-color: #25262a;
+}
+.champs{
+    display: flex;
+    justify-content: space-around;
 }
 .r,.g,.b{
     width: 26%;
     height: 150px;
-    background-color: aqua;
     text-align: center;
     font-size: 400%;
     border-radius: 15px;
-    overflow: hidden;
+    /* overflow: hidden; */
     color: white;
     font-weight: bold;
+    position: relative;
+}
+.champs .item::after{
+    position: absolute;
+    content: 'r';
+    font-size: 300%;
+    top: -20%;
+    text-transform: uppercase;
+    left: 0;
+    color: #ffffff5e;
+    
+}
+.champs .item.g::after{
+    content: 'g';
+}
+.champs .item.b::after{
+    content: 'b';
 }
 .r{
-    background-color: rgba(255, 0, 0, 0.671);
-    transform: translate(20%);
+    background-color: var(--red);   
 }
 .g{
-    background-color: rgba(172, 255, 47, 0.979);
-    transform: translate(145%,-150px);
+    background-color: var(--green);
 }
 .b{
-    transform: translate(270%,-300px);
-    background-color: rgba(0, 0, 255, 0.699);
+    background-color: var(--bleu);
 }
-[type="text"]{
+[type="number"]{
     text-align: center;
     color: white;
     font-weight: bold;
@@ -274,9 +292,49 @@ footer a .item:hover{
     }
     footer a  .item{
         padding-left: 20px;
-
     }
     footer .container .des{
         width: 100%;
+    }
+    .champs{
+        flex-direction: column;
+        margin: 0 auto;
+        text-align: center;
+        width: 90%;
+    }
+    .champs .item{
+        background-color: transparent;
+        width: 100%;
+        height: 50px;
+        margin: 10px 0;
+        padding: 0;
+        position: relative;
+    }
+    .champs .item::after{
+        font-size: 25px;
+        top: 0;
+        left: 0;
+        width: 20%;
+        background-color: var(--red);
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+    }
+    .champs .item.g::after{
+        background-color: var(--green);
+    }
+    .champs .item.b::after{
+        background-color: var(--bleu);
+    }
+    input[type=number]{
+        position: absolute;
+        background-color: #fff;
+        border-radius: 20px;
+        color: #000;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 20px;
+        width: 70%;
     }
 }

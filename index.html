@@ -50,18 +50,15 @@
             <div class="copier">copier</div>
         </div>
         </div>
-        <div class="align">
-            <div class="r">
-                <div class="ombre">R</div>
-                <input type="text" class="text" maxlength="3" pattern="[0-9]*" value="255">
+        <div class="champs">
+            <div class="r item">
+                <input type="number" class="text" maxlength="3" pattern="[0-9]*" value="255">
             </div>
-            <div class="g">
-                <div class="ombre">G</div>
-                <input type="text" class="text" maxlength="3" value="0" pattern="[0-9]*">
+            <div class="g item">
+                <input type="number" class="text" maxlength="3" value="0" pattern="[0-9]*">
             </div>
-            <div class="b">
-                <div class="ombre">B</div>
-                <input type="text" class="text" maxlength="3" value="0" pattern="[0-9]*">
+            <div class="b item">
+                <input type="number" class="text" maxlength="3" value="0" pattern="[0-9]*">
             </div>
         </div>
     </main>
@@ -94,8 +91,11 @@
             <a href=""><div class="item">start web easily</div></a>
         </div>
     </footer>
-    <!--
-        <script src="color.js"></script>
+    <!--src="color.js"
     --> 
+    <script >
+        const after = document.querySelector('.champs .item::after')
+        console.log(after)
+    </script>
 </body>
 </html>
