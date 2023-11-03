@@ -3,9 +3,11 @@
     src: url(/Pacifico/Pacifico-Regular.ttf) format('opentype');
 }
 html{
-    --red:#dc3545;
-    --bleu:#0d6efd;
-    --green:#198754;
+    --cl-red:#dc3545;
+    --cl-bleu:#0d6efd;
+    --cl-green:#198754;
+    --cl-blanc:#fff;
+    --cl-code:#161b21;
 }
 
 body{
@@ -18,7 +20,7 @@ footer,header{
     display: flex;
     background-color: #000;
     flex-wrap: wrap;
-    color: #fff;
+    color: var(--cl-blanc);
     justify-content: space-around;
     padding: 10px;
 }
@@ -29,7 +31,7 @@ a{
 
 :is(header  div:first-child,footer > div:first-child) img{
     border-radius: 20pc;
-    background-color: #fff;
+    background-color: var(--cl-blanc);
     margin: 0 10px;
     transition: background cubic-bezier(0.55, 0.055, 0.675, 0.19) ;
 }
@@ -68,7 +70,7 @@ main{
     height: 400px;
     width: 100%;
     transition: all 1s;
-    background-color: var(--green);
+    background-color: var(--cl-green);
     box-shadow: 0 0px 20px black ;
     border-radius: 15px;
     border: 0;
@@ -81,7 +83,7 @@ main{
     margin: 15px;
     border-radius: 20px;
     box-shadow: 0 0px 5px black ;
-    color: #fff;
+    color: var(--cl-blanc);
     font-weight: bold;
     font-family: Pacifico-Regular;
     letter-spacing: 3px;
@@ -106,7 +108,7 @@ main{
     position: absolute;
     top: 60%;
     left: 50%;
-    color: #ffffffa4;
+    color: var(--cl-blanc)fffa4;
     transform: translate(-50%,-50%);
     animation: colortext .6s forwards;
     opacity: 0;
@@ -144,7 +146,7 @@ main .copier:hover {
     top: -20%;
     text-transform: uppercase;
     left: 0;
-    color: #ffffff5e;
+    color: #ffffff86;
     
 }
 .champs .item.g::after{
@@ -154,13 +156,13 @@ main .copier:hover {
     content: 'b';
 }
 .r{
-    background-color: var(--red);   
+    background-color: var(--cl-red);   
 }
 .g{
-    background-color: var(--green);
+    background-color: var(--cl-green);
 }
 .b{
-    background-color: var(--bleu);
+    background-color: var(--cl-bleu);
 }
 [type="text"]{
     text-align: center;
@@ -260,14 +262,14 @@ input:invalid{
     right: 0;
     margin: 10px 20px 0 0;
     background-color: transparent;
-    border: 1px solid var(--red);
+    border: 1px solid var(--cl-red);
     padding: .5em;
     border-radius: 20px;
     transition: all .5s;
 }
 .cr:hover{
-    background-color: var(--red);
-    color: #fff;
+    background-color: var(--cl-red);
+    color: var(--cl-blanc);
 }
 
 footer .container{
@@ -327,20 +329,20 @@ footer a .item:hover{
         top: 0;
         left: 0;
         width: 20%;
-        background-color: var(--red);
+        background-color: var(--cl-red);
         padding: 10px;
         border-radius: 10px;
-        color: #fff;
+        color: var(--cl-blanc);
     }
     .champs .item.g::after{
-        background-color: var(--green);
+        background-color: var(--cl-green);
     }
     .champs .item.b::after{
-        background-color: var(--bleu);
+        background-color: var(--cl-bleu);
     }
     input[type=text]{
         position: absolute;
-        background-color: #fff;
+        background-color: var(--cl-blanc);
         border-radius: 20px;
         color: #000;
         top: 0;
@@ -357,7 +359,7 @@ footer a .item:hover{
     }
     .ppoopp::after{
         inset: 0 0 0 0;
-        background-color: #0f0e0eb7;
+        background-color: #0f0e0eb2;
         filter: blur(5px);
         position: absolute;
         content: '';
@@ -378,10 +380,10 @@ footer a .item:hover{
         border-radius: 20px ;
     }
     .cr{
-        color: #fff;
+        color: var(--cl-blanc);
         font-size: 18px;
         text-transform: capitalize;
-        background-color: var(--red);
+        background-color: var(--cl-red);
         top: -50px;
         width: 50%;
         margin: 0;
@@ -399,28 +401,34 @@ footer a .item:hover{
         grid-gap: 10px;
         height: none;
     }
-    .rgb,.author,.msg,.icon{
+    .rgb,.author,.msg,.icon img{
         border-radius: 20px;
         text-align: center;
         
     }
     .pop-text .rgb{
         grid-area: rgb;
-        background-color: var(--green);
+        background-color: var(--cl-code);
+        color: var(--cl-blanc);
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        
     }
     .pop-text .icon{
         grid-area: cp;
+        display: flex;
+        align-items: center;
+        justify-content: end;
         height: 50px;
-        background-color: #fff;
+    }
+    .pop-text .icon img{
+        background-color: var(--cl-code);
+        padding: 10px;
     }
     .pop-text .msg{
         grid-area: msg;
-        background-color: var(--red);
+        background-color: var(--cl-red);
         margin: 0;
         padding: 10px;
         display: flex;
@@ -433,7 +441,7 @@ footer a .item:hover{
         grid-area: auth;
         padding: 0;
         justify-content: center;
-        background-color: #fff;
+        background-color: var(--cl-blanc);
         color: #000;
     }
     .author span{
