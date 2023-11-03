@@ -12,6 +12,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border: none;
 }
 footer,header{
     display: flex;
@@ -58,19 +59,22 @@ main{
     border-radius: 10px;
     padding: 15px;
 }
-.color{
-    margin: 25px auto;
-    height: 400px;
+.button-pos{
     width: 90%;
+    position: relative;
+    margin: 25px auto;
+}
+.color{
+    height: 400px;
+    width: 100%;
     transition: all 1s;
-    background-color: #1a8654;
+    background-color: var(--green);
     box-shadow: 0 0px 20px black ;
     border-radius: 15px;
+    border: 0;
     overflow: hidden;
-    position: relative;
 }
 .copier{
-    display: block;
     position: absolute;
     bottom: -70px;
     right: 0;
@@ -82,16 +86,18 @@ main{
     font-family: Pacifico-Regular;
     letter-spacing: 3px;
     text-transform: capitalize;
+    background-color: transparent;
     border: 1px solid #25262a;
     font-size: 1em;
     padding: 0.5em;
     transition: all .5s;
     animation: copitext .6s forwards;
-    opacity: 0;
+    opacity: 1;
 }
 @keyframes copitext {
     100%{
         bottom: 0;
+        right: 2px;
         opacity: 1;
     }
 }
@@ -116,7 +122,9 @@ main .copier:hover {
 }
 .champs{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
 }
 .r,.g,.b{
     width: 26%;
@@ -154,7 +162,7 @@ main .copier:hover {
 .b{
     background-color: var(--bleu);
 }
-[type="number"]{
+[type="text"]{
     text-align: center;
     color: white;
     font-weight: bold;
@@ -188,19 +196,40 @@ input:invalid{
     color: rgb(0, 0, 0);
     animation-name: ip;
     animation-duration: 0.3s;
-    transition: all 1s;
-    /* animation-iteration-count: 2; */
+    transition: all .2s ease-in-out;
+    animation-iteration-count: 2;
 }
 @keyframes ip{
     50%{transform: translate(30px);}
     100%{transform: translate(-30px);}
 }
+
+.ppoopp{
+    transition: all 2s;
+    position: fixed;
+    bottom: -260px;
+    right: 0;
+    z-index: 455;
+    margin: 20px;
+    animation: pop 2.5s forwards;
+    /* opacity: 0; */
+    bottom: 0;
+    opacity: 1;
+}
+
+/* @keyframes pop{
+    100%{
+        bottom: 0;
+        opacity: 1;
+    }
+} */
+
 .pop{
+    border-radius: 20px;
+    overflow: hidden;
     width: 300px;
-    border: 1px solid black;
     height: 250px;
     display: block;
-    /* margin-left: 300px; */
     background-color: rgba(0, 0, 0, 0.904);
     color: wheat;
     text-align: right;
@@ -220,42 +249,25 @@ input:invalid{
     height: 80px;
     border: 1px solid black;
 }
-.pop-text code{
+.pop-text .rgb{
     color: aqua;
     font-size: 25px;
 }
-.pop code{
-    padding-right: 15px;
-    padding-bottom: 130px;
+
+.cr{
+    /* border: 1px solid; */
+    position: absolute;
+    right: 0;
+    margin: 10px 20px 0 0;
+    background-color: transparent;
+    border: 1px solid var(--red);
+    padding: .5em;
+    border-radius: 20px;
+    transition: all .5s;
 }
-.croix,.croix1{
-    margin: 100px;
-    background-color: black;
-    width: 3px;
-    height: 20px;
-}
-.pos{
-    width: 20px;
-    height: 30px;
-    transform: translate(180px,35px);
-    cursor: pointer;
-}
-.croix{
-   transform: rotate(-50deg);
-}
-.croix1{
-   transform: rotate(50deg);
-}
-.pos-croix1{
-    transform: translate(0,-120px);
-}
-.ppoopp{
-    width: 30px;
-    transition: all 2s;
-    position: fixed;
-    z-index: 455;
-    display: none;
-    
+.cr:hover{
+    background-color: var(--red);
+    color: #fff;
 }
 
 footer .container{
@@ -326,7 +338,7 @@ footer a .item:hover{
     .champs .item.b::after{
         background-color: var(--bleu);
     }
-    input[type=number]{
+    input[type=text]{
         position: absolute;
         background-color: #fff;
         border-radius: 20px;
@@ -336,5 +348,96 @@ footer a .item:hover{
         bottom: 0;
         font-size: 20px;
         width: 70%;
+    }
+    .ppoopp{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        inset: 0 0 0 0;
+    }
+    .ppoopp::after{
+        inset: 0 0 0 0;
+        background-color: #0f0e0eb7;
+        filter: blur(5px);
+        position: absolute;
+        content: '';
+        
+    }
+    .ppoopp .pop{
+        overflow: visible;
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        background-color: transparent;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 80%;
+       
+    }
+    .pop-color{
+        border-radius: 20px ;
+    }
+    .cr{
+        color: #fff;
+        font-size: 18px;
+        text-transform: capitalize;
+        background-color: var(--red);
+        top: -50px;
+        width: 50%;
+        margin: 0;
+    }
+    .pop-text{
+        border: 0;
+        display: grid;
+        width: 100%;
+        padding: 10px 0;
+        grid-template-areas: 
+        "rgb rgb cp"
+        "msg msg msg"
+        "auth c c"
+        ;
+        grid-gap: 10px;
+        height: none;
+    }
+    .rgb,.author,.msg,.icon{
+        border-radius: 20px;
+        text-align: center;
+        
+    }
+    .pop-text .rgb{
+        grid-area: rgb;
+        background-color: var(--green);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .pop-text .icon{
+        grid-area: cp;
+        height: 50px;
+        background-color: #fff;
+    }
+    .pop-text .msg{
+        grid-area: msg;
+        background-color: var(--red);
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .pop-text .author{
+        font-family: Pacifico-Regular;
+        font-size: 20px;
+        grid-area: auth;
+        padding: 0;
+        justify-content: center;
+        background-color: #fff;
+        color: #000;
+    }
+    .author span{
+        width: 100%;
+        display: block;
     }
 }
