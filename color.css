@@ -218,7 +218,17 @@ input:invalid{
     bottom: 0;
     opacity: 1;
 }
+.ppoopp::after{
+    content: '';
+    position: absolute;
+    inset: -15px ;
+    
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.7);
+    z-index: -1;
 
+}
 /* @keyframes pop{
     100%{
         bottom: 0;
@@ -232,32 +242,38 @@ input:invalid{
     width: 300px;
     height: 250px;
     display: block;
-    background-color: rgba(0, 0, 0, 0.904);
     color: wheat;
     text-align: right;
 }
 .pop-color{
     width: 100%;
     height: 140px;
-    background-color: aqua;
-    border-bottom: 1px solid black;
-    
+    background-color: var(--cl-green);
 }
 .pop-text{
     text-align: left;
-    color: wheat;
     padding-top: 10px;
     padding-left: 10px;
-    height: 80px;
-    border: 1px solid black;
+    padding: 10px 0;
+    display: grid;
+    grid-template-areas: 
+        "rgb rgb cp"
+        "msg msg msg"
+        "auth c c"
+    ;
+    grid-gap: 10px;
 }
 .pop-text .rgb{
-    color: aqua;
-    font-size: 25px;
+    grid-area: rgb;
+    background-color: var(--cl-code);
+    color: var(--cl-blanc);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cr{
-    /* border: 1px solid; */
     position: absolute;
     right: 0;
     margin: 10px 20px 0 0;
@@ -272,6 +288,52 @@ input:invalid{
     color: var(--cl-blanc);
 }
 
+.ppoopp::after,.icon,.rgb, .author,.msg,.icon img,.pop-color{
+    border-radius: 20px;
+}
+.rgb{
+
+    grid-gap: 0;
+}
+.pop-text .icon{
+    grid-gap: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cl-code);
+    gap: 0;
+    height: 40px;
+}
+.pop-text .icon img{
+    padding: 10px;
+}
+.pop-text .msg{
+    grid-area: msg;
+    margin: 0;
+    padding: 10px;
+    font-size: 15px;
+    background-color: var(--cl-blanc);
+    color: #000;
+    display: flex;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+.pop-text .author{
+    display: none;
+    font-family: Pacifico-Regular;
+    font-size: 20px;
+    grid-area: auth;
+    padding: 0;
+    justify-content: center;
+    background-color: var(--cl-blanc);
+    color: #000;
+}
+.author span{
+    width: 100%;
+    display: block;
+}
+
+/* footer------------ */
 footer .container{
     width: 40%;
 }
@@ -291,7 +353,7 @@ footer a .item{
 footer a .item:hover{
     text-decoration: underline;
 }
-@media screen and (max-width:590px) {
+@media screen and (max-width:700px) {
     
     footer {
         flex-direction: column;
@@ -389,36 +451,17 @@ footer a .item:hover{
         margin: 0;
     }
     .pop-text{
-        border: 0;
-        display: grid;
         width: 100%;
-        padding: 10px 0;
-        grid-template-areas: 
-        "rgb rgb cp"
-        "msg msg msg"
-        "auth c c"
-        ;
-        grid-gap: 10px;
-        height: none;
-    }
-    .rgb,.author,.msg,.icon img{
-        border-radius: 20px;
-        text-align: center;
-        
     }
     .pop-text .rgb{
-        grid-area: rgb;
-        background-color: var(--cl-code);
-        color: var(--cl-blanc);
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        transform: translatex(15%);
+        font-size: 20px;
     }
     .pop-text .icon{
         grid-area: cp;
         display: flex;
         align-items: center;
+        background-color: transparent;
         justify-content: end;
         height: 50px;
     }
@@ -428,24 +471,15 @@ footer a .item:hover{
     }
     .pop-text .msg{
         grid-area: msg;
-        background-color: var(--cl-red);
         margin: 0;
         padding: 10px;
+        font-size: 20px;
         display: flex;
         align-items: center;
         font-family: 'Courier New', Courier, monospace;
     }
     .pop-text .author{
-        font-family: Pacifico-Regular;
-        font-size: 20px;
-        grid-area: auth;
-        padding: 0;
-        justify-content: center;
-        background-color: var(--cl-blanc);
-        color: #000;
-    }
-    .author span{
-        width: 100%;
         display: block;
+        text-align: center;
     }
 }
