@@ -32,16 +32,14 @@
     position: relative;
 }
 .pop::after{
+    border-radius: 20px;
     content: '';
     position: absolute;
     inset: -15px ;
-    /* padding: ; */
-    
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     background-color: rgba(17, 25, 40, 0.7);
     z-index: -1;
-
 }
 .pop-color{
     width: 100%;

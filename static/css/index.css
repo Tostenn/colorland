@@ -125,6 +125,7 @@ main .copier:hover {
     position: relative;
 }
 .champs .item::after{
+    /* z-index: -1; */
     position: absolute;
     content: 'r';
     font-size: 300%;
@@ -150,14 +151,16 @@ main .copier:hover {
     background-color: var(--cl-bleu);
 }
 [type="text"]{
+    position: absolute;
     text-align: center;
+    left: 50%;
+    transform: translate(-50%);
     color: white;
     font-weight: bold;
     font-size: 90%;
     width: 110px;
     background-color: rgba(255, 0, 0, 0);
     outline: none;
-    border: none;
     border-bottom: 2px solid rgb(255, 255, 255);
 }
 .ombre{
