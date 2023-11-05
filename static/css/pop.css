@@ -1,0 +1,132 @@
+@import url(/static/css/variable.css);
+/* popup */
+.ppoopp{
+    transition: all 2s;
+    position: fixed;
+    bottom: -260px;
+    background-color: transparent;
+    right: 0;
+    z-index: 455;
+    margin: 20px;
+    animation: pop 2.5s forwards;
+    /* opacity: 0; */
+    bottom: 0;
+    opacity: 1;
+}
+
+/* @keyframes pop{
+    100%{
+        bottom: 0;
+        opacity: 1;
+    }
+} */
+
+.pop{
+    border-radius: 20px;
+    width: 300px;
+    height: 250px;
+    display: block;
+    color: wheat;
+    text-align: right;
+    margin: 45px 0;
+    position: relative;
+}
+.pop::after{
+    content: '';
+    position: absolute;
+    inset: -15px ;
+    /* padding: ; */
+    
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.7);
+    z-index: -1;
+
+}
+.pop-color{
+    width: 100%;
+    height: 140px;
+    background-color: var(--cl-green);
+}
+.pop-text{
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding: 10px 0;
+    display: grid;
+    grid-template-areas: 
+        "rgb rgb cp"
+        "msg msg msg"
+        "auth c c"
+    ;
+    grid-gap: 10px;
+}
+.pop-text .rgb{
+    grid-area: rgb;
+    background-color: var(--cl-code);
+    color: var(--cl-blanc);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cr{
+    position: absolute;
+    right: 0;
+    margin: 10px 20px 0 0;
+    background-color: transparent;
+    border: 1px solid var(--cl-red);
+    padding: .5em;
+    border-radius: 20px;
+    transition: all .5s;
+}
+.cr:hover{
+    background-color: var(--cl-red);
+    color: var(--cl-blanc);
+}
+
+.ppoopp::after,.icon,.rgb, .author,.msg,.icon img,.pop-color{
+    border-radius: 20px;
+}
+.rgb{
+
+    grid-gap: 0;
+}
+.pop-text .icon{
+    grid-gap: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cl-code);
+    gap: 0;
+    height: 40px;
+}
+.pop-text .icon img{
+    padding: 10px;
+}
+.pop-text .msg{
+    grid-area: msg;
+    margin: 0;
+    padding: 10px;
+    font-size: 15px;
+    background-color: var(--cl-blanc);
+    color: #000;
+    display: flex;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+.pop-text .author{
+    display: none;
+    font-family: Pacifico-Regular;
+    font-size: 20px;
+    grid-area: auth;
+    padding: 0;
+    justify-content: center;
+    background-color: var(--cl-blanc);
+    color: #000;
+}
+.author span{
+    width: 100%;
+    display: block;
+}

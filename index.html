@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>couleurland</title>
+    <link rel="stylesheet" href="/static/css/pop.css">
     <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/stylegenerale.css">
     <link rel="icon" type="image/x-icon" href="ico.ico">
 </head>
 <body >
@@ -24,16 +27,18 @@
             
     </header>
 
+    <!-- poppup active lorsqu'on veut copier -->
     <section>
         <div class="ppoopp">
+            
             <div class="pop">
                 <button class="cr">fermer</button>
                 <div class="pop-color"></div>
                 <div class="pop-text">
                     <div class="rgb"><span>rgb(10,50,42)</span> </div>
-                    <span class="icon">
-                        <img src="/static/image/copier-alt.png" height="70%" alt="">
-                    </span>
+                    <button class="icon">
+                        <img src="/static/image/copier-alt.png" height="100%" alt="">
+                    </button>
                     <div class="msg">
                         tres bon choix cette couleur apporte la joie
                     </div>
@@ -93,6 +98,6 @@
     </footer>
     <!--src="color.js"
     --> 
-    <script></script>
+    <script type="module" src="/static/js/index.js"></script>
 </body>
 </html>
