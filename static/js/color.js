@@ -86,7 +86,26 @@ export class Color{
         this.rgb[name] = name == 'op'?
         this.rgb.op =this.parseop(value) : value
     }
-    inset
+    /**
+     * insert une nouvelle couleur
+     * @param {Array} value [r, g, b, op]
+     * @returns {Boolean}
+     */
+    insert(value){
+        if (Array.isArray(value) && value.length > 0){
+            let n = 0
+            for (const key in this.rgb) {
+                this.rgb[key] = key == 'op'?
+                this.rgb.op =this.parseop(value[n]) : value[n]
+                n++
+                if(n == value.length) break 
+
+            }
+            this.applicolor()
+            this.updataInput()
+            return true
+        }
+    }
     /**
      * 
      * @param {Number} op 

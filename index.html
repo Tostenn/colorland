@@ -57,10 +57,13 @@
             <div class="ch-op">
                 <label for="op">opacité</label>
                 <input name="op" type="range" id="op" max="100">
-                <span class="value">150%</span>
+                <span class="value">50%</span>
             </div>
-            <button>mode auto</button>
-            <button>couleur précedente</button>
+
+            <!-- bouton pour passer en mode auto genere des color seule
+                 et il utilisateur a statisfait li l'arret
+                 <button>mode auto</button>
+            <button>couleur précedente</button> -->
         </div>
 
         <div class="button-pos">
@@ -69,8 +72,7 @@
             </button>
         </div>
         </div>
-            
-            <div class="champs">
+        <div class="champs">
                 <div class="r item">
                     <input name="r" type="text" max="255" class="text" maxlength="3" pattern="[0-9]*" value="26">
                 </div>
@@ -80,8 +82,8 @@
                 <div class="b item">
                     <input type="text" max="255" name="b" class="text" maxlength="3" value="84" pattern="[0-9]*">
                 </div>
-            </div>
-        </main>
+        </div>
+    </main>
     </form>
 
     <footer>
@@ -118,6 +120,6 @@
     <!--src="color.js"
     --> 
     <script type="module" src="/static/js/index.js"></script>
-    <script type="module" src="/static/js/pop.js"></script>
+    <!-- <script type="module" src="/static/js/pop.js"></script> -->
 </body>
 </html>

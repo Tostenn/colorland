@@ -1,7 +1,7 @@
 
 import {  } from "./fonction.js";
 import { Color } from "./color.js";
-
+import { Popup } from "./pop.js";
 
 
 const message = [
@@ -17,3 +17,7 @@ const form = document.getElementById('ch-color')
 form.addEventListener('submit',e => e.preventDefault())
 
 const color = new Color(form)
+color.insert([0,23,1,0])
+
+// const popParent = 
+// const pop = new Popup()
