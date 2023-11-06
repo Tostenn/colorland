@@ -32,6 +32,9 @@ export class Color{
             elements.oninput = ()=>{
                 this.sartvalue(elements)
                 this.applicolor()
+                if (elements.getAttribute('name') == 'op'){
+                    elements.nextElementSibling.innerHTML = elements.value +'%'
+                }
             }
         });
         

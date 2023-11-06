@@ -94,8 +94,8 @@ main{
 .copier{
     position: absolute;
     bottom: -70px;
-    right: auto;
-    left: 0;
+    right: 0;
+    /* left: 0; */
     margin: 15px;
     border-radius: 20px;
     box-shadow: 0 0px 5px black ;
@@ -154,6 +154,8 @@ main .copier:hover {
     color: white;
     font-weight: bold;
     position: relative;
+    transition: filter .3s;
+
 }
 .champs .item::after{
     /* z-index: -1; */
@@ -172,6 +174,7 @@ main .copier:hover {
 .champs .item.b::after{
     content: 'b';
 }
+
 .r{
     background-color: var(--cl-red);   
 }
@@ -186,14 +189,22 @@ main .copier:hover {
     text-align: center;
     left: 50%;
     transform: translate(-50%);
-    color: white;
+    color: var(--cl-blanc);
     font-weight: bold;
     font-size: 90%;
     width: 110px;
-    background-color: rgba(255, 0, 0, 0);
+    background-color: transparent;
     outline: none;
-    border-bottom: 2px solid rgb(255, 255, 255);
+    border-bottom: 2px solid var(--cl-blanc);
+    z-index: 2;
 }
+.champs:hover .item:not(:hover) {
+    transition: all .5s;
+    opacity: 0.5;
+    filter: blur(5px) contrast(70%);
+    
+}
+
 .ombre{
     text-align: center;
     font-size: 300%;
@@ -203,16 +214,7 @@ main .copier:hover {
     height: 10px;
     /* overflow: hidden; */
 }
-#copi{
-    background-color: bisque;
-    box-shadow: 0 0 5px black;
-    display: none;
-    width: 20%;
-    padding: 20px;
-    border: 1px solid black;
-    border-bottom-right-radius: 15px;
-    color: red;
-}
+
 input:invalid{
     color: var(--cl-red);
     animation-name: ip;
@@ -228,20 +230,72 @@ input:invalid{
 /* footer------------ */
 footer .container{
     width: 40%;
+    margin: 5px 0;
+}
+footer .container .fl{
+    display: flex;
+    flex-direction: column;
+}
+footer img{
+    align-self: start;
+}
+
+footer .container p{
+    margin: 10px 0;
 }
 footer .container .des{
     font-style: italic;
     font-family: 'Courier New', Courier, monospace;
+    width: 100%;
 }
 footer h3{
-
     text-transform: capitalize;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 footer a .item{
     font-family:Arial, Helvetica, sans-serif ;
     margin: 5px 0;
+    position: relative;
+    padding-left: 40px;
 }
 footer a .item:hover{
     text-decoration: underline;
+}
+footer a .item:hover::after{
+    border-bottom-color: var(--cl-bleu);
+    transition: all .3s;
+}
+footer a .item.tree::after{
+    top: -5px;
+    left: 5px;
+    width: 25px;
+    height: 15px;
+}
+footer .link-group{
+    position: relative;
+}
+footer .link-group::before{
+    position: absolute;
+    content: '';
+    background-color: var(--cl-blanc);
+    width: 3px;
+    top: 25px;
+    left: 5px;
+    bottom: 25px;
+}
+footer .link-group.no::before{
+    display: none;
+}
+footer .tree::after{
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 3px solid;
+    border-top: 0;
+    border-right: 0;
+    border-radius: 0 20px 0;
+    top: -10px;
+    left: -25px;
+
 }

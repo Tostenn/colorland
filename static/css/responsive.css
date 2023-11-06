@@ -4,17 +4,27 @@
     footer {
         flex-direction: column;
         padding-left: 20px;
+        position: relative;
+    }
+    footer::after{
+        content: '';
+        position: absolute;
+        background-color: var(--cl-blanc);
+        top: 85px;
+        left: 50px;
+        bottom: 20px;
+        width: 3px;
     }
     footer > div{
         width: 100%;
     }
     footer .link-group{
-        margin-left: 20px;
+        margin-left: 55px;
         width: 90%;
     }
-    footer a  .item{
-        padding-left: 20px;
-    }
+    /* footer a  .item{
+        width: 30%;
+    } */
     footer .container .des{
         width: 100%;
     }
