@@ -31,6 +31,7 @@
     margin: 45px 0;
     position: relative;
 }
+
 .pop::after{
     border-radius: 20px;
     content: '';
@@ -127,4 +128,24 @@
 .author span{
     width: 100%;
     display: block;
+}
+
+.pop.second{
+    height: 100px;
+}
+.pop.pop.second .pop-color{
+    height: 50%;
+}
+.pop.second .pop-text .msg{
+    display: none;
+}
+
+.pop.second .aff{
+    border-color: var(--cl-bleu);
+    display: block;
+    left: 10px;
+    right:auto;
+}
+.pop.second .aff:hover{
+    background-color: var(--cl-bleu);
 }

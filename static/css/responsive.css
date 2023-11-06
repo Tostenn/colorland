@@ -88,6 +88,9 @@
         width: 80%;
        
     }
+    .pop.second{
+        display: none;
+    }
     .pop::after{
         content: none;
         background-color: transparent;
