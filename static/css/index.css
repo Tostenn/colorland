@@ -44,10 +44,40 @@ main{
     border-radius: 10px;
     padding: 15px;
 }
+.ch-op{
+    background-color: var(--cl-blanc);
+    width: 230px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    
+    font-family:'Courier New', Courier, monospace;
+}
+.ch-op label{
+    padding: 5px;
+    background-color: var(--cl-bleu);
+    color: var(--cl-blanc);
+}
+.ch-op #op{
+    width: 50%;
+    border: 1px solid var(--cl-red);
+    margin: 0 5px;
+}
+.ch-op span{
+    padding: 5px;
+    width: 20%;
+    justify-self: end;
+    color: var(--cl-blanc);
+    background-color: var(--cl-green);
+}
+
 .button-pos{
     width: 90%;
     position: relative;
     margin: 25px auto;
+    color: rg;
 }
 .color{
     height: 400px;
@@ -64,7 +94,8 @@ main{
 .copier{
     position: absolute;
     bottom: -70px;
-    right: 0;
+    right: auto;
+    left: 0;
     margin: 15px;
     border-radius: 20px;
     box-shadow: 0 0px 5px black ;
@@ -84,7 +115,7 @@ main{
 @keyframes copitext {
     100%{
         bottom: 0;
-        right: 2px;
+        /* right: 2px; */
         opacity: 1;
     }
 }

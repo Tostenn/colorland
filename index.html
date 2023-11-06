@@ -30,58 +30,54 @@
     <!-- poppup active lorsqu'on veut copier -->
     <section>
         <div class="ppoopp">
+            <template id="pop-item">
+                <div class="pop">
+                    <button class="cr">fermer</button>
+                    <button class="cr">fermer</button>
+                    <div class="pop-color"></div>
+                    <div class="pop-text">
+                        <div class="rgb"><span>rgb(10,50,42)</span> </div>
+                        <button class="icon">
+                            <img src="/static/image/copier-alt.png" height="100%" alt="">
+                        </button>
+                        <div class="msg">
+                            tres bon choix cette couleur apporte la joie
+                        </div>
+                        <div class="author">by T_xOx_T</div>
+                    </div>
+                </div>
+            </template>
             
-            <div class="pop">
-                <button class="cr">fermer</button>
-                <div class="pop-color"></div>
-                <div class="pop-text">
-                    <div class="rgb"><span>rgb(10,50,42)</span> </div>
-                    <button class="icon">
-                        <img src="/static/image/copier-alt.png" height="100%" alt="">
-                    </button>
-                    <div class="msg">
-                        tres bon choix cette couleur apporte la joie
-                    </div>
-                    <div class="author">by T_xOx_T</div>
-                </div>
-            </div>
-            <div class="pop second">
-                <button class="cr">fermer</button>
-                <button class="dn cr aff ">developper</button>
-                <div class="pop-color"></div>
-                <div class="pop-text">
-                    <div class="rgb"><span>rgb(10,50,42)</span> </div>
-                    <button class="icon">
-                        <img src="/static/image/copier-alt.png" height="100%" alt="">
-                    </button>
-                    <div class="msg">
-                        tres bon choix cette couleur apporte la joie
-                    </div>
-                    <div class="author">by T_xOx_T</div>
-                </div>
-            </div>
         </div>
     </section>
-
+    
+    <form id="ch-color" >
     <main>
+        <div class="ch-op">
+            <label for="op">opacité</label>
+            <input name="op" type="range" id="op" max="100">
+            <span class="value">150%</span>
+        </div>
         <div class="button-pos">
             <button class="color">
                 <button class="copier">copier</button>
             </button>
         </div>
         </div>
-        <div class="champs">
-            <div class="r item">
-                <input type="text" class="text" maxlength="3" pattern="[0-9]*" value="255">
+            
+            <div class="champs">
+                <div class="r item">
+                    <input name="r" type="text" max="255" class="text" maxlength="3" pattern="[0-9]*" value="255">
+                </div>
+                <div class="g item">
+                    <input type="text" max="255" name="g" class="text" maxlength="3" value="0" pattern="[0-9]*">
+                </div>
+                <div class="b item">
+                    <input type="text" max="255" name="b" class="text" maxlength="3" value="0" pattern="[0-9]*">
+                </div>
             </div>
-            <div class="g item">
-                <input type="text" class="text" maxlength="3" value="0" pattern="[0-9]*">
-            </div>
-            <div class="b item">
-                <input type="text" class="text" maxlength="3" value="0" pattern="[0-9]*">
-            </div>
-        </div>
-    </main>
+        </main>
+    </form>
 
     <footer>
         <div class="container">
@@ -111,8 +107,10 @@
             <a href=""><div class="item">start web easily</div></a>
         </div>
     </footer>
+
     <!--src="color.js"
     --> 
     <script type="module" src="/static/js/index.js"></script>
+    <script type="module" src="/static/js/pop.js"></script>
 </body>
 </html>
