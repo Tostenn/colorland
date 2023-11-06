@@ -2,8 +2,8 @@
 html{
     --cl-red:#dc3545;
     --cl-bleu:#0d6efd;
-    --cl-green:#198754;
-    --cl-blanc:#fff;
+    --cl-green:rgb(26, 135, 84);
+    --cl-blanc:hsl(0, 0%, 100%);
     --cl-code:#161b21;
     --cl-yellow:#ffc107;
 }

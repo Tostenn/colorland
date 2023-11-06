@@ -7,28 +7,22 @@ export class Color{
      */
     constructor(form){
         
-        this.element = form // element parent
-        
-        // gestion des champs
-        this.dataform = new FormData(this.element)
-        this.inputAll = Array.from(this.element.querySelectorAll('input'))
-        
         this.rgb = {
             r:0,
             g:0,
             b:0,
-            op:this.parseop(
-                this.inputAll.filter(el => el.getAttribute('name') == 'op')
-            [0].value)
-                
+            op:0                
         }
-        console.log(this.rgb)
+        this.element = form // element parent
+         
+        // gestion des champs
+        this.dataform = new FormData(this.element)
+        this.inputAll = Array.from(this.element.querySelectorAll('input'))
         this.inputAll.forEach(elements => {
+            this.sartvalue(elements)
+            
             elements.oninput = ()=>{
-                const value = elements.value
-                const name = elements.getAttribute('name')
-                this.rgb[name] = name == 'op'?
-                    this.rgb.op =this.parseop(value) : value
+                this.sartvalue(elements)
                 this.applicolor()
             }
         });
@@ -51,7 +45,16 @@ export class Color{
     parseop(op){
         return op> 1 ? op /100 : op
     }  
-
+    /**
+     * 
+     * @param {HTMLElement} el 
+     */
+    sartvalue(el){
+        const value = el.value
+        const name = el.getAttribute('name')
+        this.rgb[name] = name == 'op'?
+        this.rgb.op =this.parseop(value) : value
+    }
 
     /**
      * 

@@ -214,7 +214,7 @@ main .copier:hover {
     color: red;
 }
 input:invalid{
-    color: rgb(0, 0, 0);
+    color: var(--cl-red);
     animation-name: ip;
     animation-duration: 0.3s;
     transition: all .2s ease-in-out;
