@@ -1,4 +1,12 @@
 import { couleurs } from "./main.js";
+/**
+ * cettte classe va generer des color ok
+ * apppliquer la color a l'élément    ok
+ * renvoir les color actuel           ok
+ * metter a jours les champs          ok
+ * appplique les modification -------
+ * des champs sue l'element color     ok
+ */
 
 export class Color{
     /**
@@ -20,7 +28,7 @@ export class Color{
         this.inputAll = Array.from(this.element.querySelectorAll('input'))
         this.inputAll.forEach(elements => {
             this.sartvalue(elements)
-            
+
             elements.oninput = ()=>{
                 this.sartvalue(elements)
                 this.applicolor()
