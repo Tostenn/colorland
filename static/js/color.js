@@ -50,8 +50,12 @@ export class Color{
         }
     }
     current = [this.rgb]
-    parseop(op){
-        return op> 1 ? op /100 : op
+    parseop(op,inv=false){
+        if (inv){
+            
+            return op *100
+        }
+        return op > 1 ? op /100 : op
     }  
     /**
      * 
@@ -82,16 +86,15 @@ export class Color{
         }
         colorrgb = colorrgb.slice(0,colorrgb.length-1)
         colorrgb += ')'
-        console.log(colorrgb);
         this.colorelement.style.backgroundColor = colorrgb
     }
     updataInput(){
         for (const name of this.dataform.keys()) {
-            const ch = this.inputAll.filter(el =>{
+            const ch = this.inputAll.filter(el =>
                 el.getAttribute('name') == name
-            })
+            )
             if (ch.length){
-                ch[0].value = this.rgb[name]
+                ch[0].value = name == 'op'? this.parseop(this.rgb[name],true) : this.rgb[name]
             }
         }
     }
