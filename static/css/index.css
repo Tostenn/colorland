@@ -150,7 +150,7 @@ main .copier:hover {
     text-align: center;
     font-size: 400%;
     border-radius: 15px;
-    /* overflow: hidden; */
+    overflow: hidden;
     color: white;
     font-weight: bold;
     position: relative;

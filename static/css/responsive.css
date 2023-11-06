@@ -31,6 +31,7 @@
         margin: 10px 0;
         padding: 0;
         position: relative;
+        overflow: visible;
     }
     .champs .item::after{
         font-size: 25px;
