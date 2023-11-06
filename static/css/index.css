@@ -73,12 +73,34 @@ main{
     background-color: var(--cl-green);
 }
 
+main .header{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
 .button-pos{
     width: 90%;
     position: relative;
     margin: 25px auto;
     color: rg;
 }
+main .header button{
+    background-color: var(--cl-bleu);
+    padding: .5em;
+    color: var(--cl-blanc);
+    border-radius: 20px;
+}
+@media screen and (max-width:530px) {
+    main .ch-op{
+        width: 90%;
+    }
+    main .header button{
+        width: 40%;
+        margin-top: 10px;
+    }
+    
+}
+
 .color{
     height: 400px;
     width: 100%;
@@ -202,7 +224,9 @@ main .copier:hover {
     transition: all .5s;
     opacity: 0.5;
     filter: blur(5px) contrast(70%);
-    
+    & [type="text"]{
+        border: 0;
+    }
 }
 
 .ombre{

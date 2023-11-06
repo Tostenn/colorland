@@ -10,7 +10,6 @@ import { couleurs } from "./main.js";
 
 export class Color{
     /**
-     * 
      * @param {HTMLElement} form 
      */
     constructor(form){
@@ -51,8 +50,25 @@ export class Color{
             // mise a jour des champs
             this.updataInput()   
         }
+
+        // appliquer la color des element
+        const blockCh = Array.from(this.element.querySelector('.champs').children)
+        blockCh.forEach(el=>{
+            el.ondblclick = () => {
+                for (const key in this.rgb) {
+                    if (el.getAttribute('class').includes(key)){
+                        for (const key in this.rgb) {
+                            this.rgb[key] = key != 'op' ? 0 :this.rgb[key]
+                        }
+                        this.rgb[key] = 255
+                    }
+                }
+                this.applicolor()
+                this.updataInput()
+            }
+        })
     }
-    current = [this.rgb]
+    
     parseop(op,inv=false){
         if (inv){
             
@@ -70,7 +86,7 @@ export class Color{
         this.rgb[name] = name == 'op'?
         this.rgb.op =this.parseop(value) : value
     }
-
+    inset
     /**
      * 
      * @param {Number} op 
