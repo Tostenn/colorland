@@ -17,21 +17,29 @@ techno utilisé actullement
 # <b style="text-transform:uppercase;">structure</b>
 ```bash
 └── colorland
-    ├── LICENSE
-    ├── README.md
+    ├── static
+    │   ├── police
+    │   │   └── Pacifico
+    │   │       ├── Pacifico-Regular.ttf
+    │   │       └── OFL.txt
+    │   ├── js
+    │   │   ├── pop.js
+    │   │   ├── main.js
+    │   │   ├── index.js
+    │   │   ├── fonction.js
+    │   │   └── color.js
+    │   ├── image
+    │   │   ├── ico.ico
+    │   │   └── copier-alt.png
+    │   └── css
+    │       ├── variable.css
+    │       ├── stylegenerale.css
+    │       ├── responsive.css
+    │       ├── pop.css
+    │       └── index.css
     ├── index.html
-    ├── police
-    │   └── Pacifico
-    │       ├── OFL.txt
-    │       └── Pacifico-Regular.ttf
-    └── static
-        ├── css
-        │   └── index.css
-        ├── image
-        │   ├── copier-alt.png
-        │   └── ico.ico
-        └── js
-            └── index.js
+    ├── README.md
+    └── LICENSE
 ```
 
 # <b style="text-transform:capitalize;">fonctioné avenir</b>
