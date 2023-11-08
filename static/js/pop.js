@@ -104,6 +104,13 @@ export class Popup{
         }
     }
     /**
+     * 
+     * @param {HTMLElement} container 
+     */
+    devloPOP(container){
+
+    }
+    /**
      * mise a jour de la color popup
      * @param {HTMLElement} viewColor 
      */
