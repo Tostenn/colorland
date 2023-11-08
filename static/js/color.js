@@ -91,7 +91,6 @@ export class Color{
      * @param {Array} value [r, g, b, op]
      * @returns {Boolean}
      */
-
     insert(value){
         if (Array.isArray(value) && value.length > 0){
             let n = 0
@@ -118,10 +117,11 @@ export class Color{
         this.rgb.b = codeColor[2]
         this.rgb.op =this.parseop(codeColor[3])
     }
-    formateRGB(){
+    formateRGB(rgbx = false){
+        rgbx = rgbx ? rgbx : this.rgb
         let colorrgb = 'rgba('
-        for (const vaule in this.rgb) {
-            colorrgb+= this.rgb[vaule]+','
+        for (const vaule in rgbx) {
+            colorrgb+= rgbx[vaule]+','
         }
         colorrgb = colorrgb.slice(0,colorrgb.length-1)
         colorrgb += ')'

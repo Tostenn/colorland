@@ -5,11 +5,11 @@ import { Color } from "./color.js";
 
 /**
  * lorsqu'on click sur copy on affiche une pop  ok
- * il faut récuperer le nombre de pop
+ * il faut récuperer le nombre de pop           ok
  * formater les color                           ok
  * fermer la pop                                ok
  * reduis les ancienne pop                      ok
- * nombre de pop visible esr de 3
+ * nombre de pop visible esr de 3               ok
  */
 export class Popup{
     /**
@@ -35,18 +35,17 @@ export class Popup{
     /**
      * creer une nouvelle popup
      */
-    
-    newpop(){
+    newpop(color = false){
         this.autodelete()
         // cloner le template
         const container =  document.createElement('div')
         container.append(this.template.content.cloneNode(true))
 
         // mise a jour de la color
-        this.updateColor(container.querySelector('.pop-color'))
+        this.updateColor(container.querySelector('.pop-color'),color)
         
         // inseret le valeur
-        this.writevalue(container.querySelectorAll('.rgb-content span'))
+        this.writevalue(container.querySelectorAll('.rgb-content span'),color)
 
         // fermer la popup
         this.closePop(container)
@@ -60,23 +59,27 @@ export class Popup{
         this.lastpop = this.parent.lastElementChild
     }
     autodelete(){
-        console.log(this.parent.childElementCount)
         if (this.limit == this.parent.childElementCount) this.lastpop.remove()
     }
     /**
      * mise en forme des valeur de la couleur 
      * @param {Array} rgbContent 
     */
-    writevalue(rgbContent){
+    writevalue(rgbContent,rgbx = false){
+        rgbx = rgbx ? rgbx : this.color.rgb
         let i = 0
         rgbContent = Array.from(rgbContent)
-        for (const key in this.color.rgb) {
+        for (const key in rgbx) {
             const el = rgbContent.filter(
                 el => el.getAttribute('class').includes(key)
             )
             if (el.length){
-                el[0].innerHTML = this.color.rgb[key]
-                key == 'op' ? el[0].style.opacity = this.color.rgb[key] : null
+                el[0].innerHTML = rgbx[key]
+                key == 'op' ? el[0].style.opacity = rgbx[key] : null
+            }
+            else if (rgbx){
+                rgbContent[i].innerHTML = rgbx[key]
+                i++
             }
         }
     }
@@ -100,12 +103,11 @@ export class Popup{
             }, 600);
         }
     }
-
     /**
      * mise a jour de la color popup
      * @param {HTMLElement} viewColor 
      */
-    updateColor(viewColor){
-        viewColor.style.backgroundColor = this.color.formateRGB()
+    updateColor(viewColor,color=false){
+        viewColor.style.backgroundColor = this.color.formateRGB(color)
     }
 }
