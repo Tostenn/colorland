@@ -56,6 +56,7 @@
     padding-left: 10px;
     padding: 10px 0;
     display: grid;
+    grid-template-columns: 40% 30% 30%;
     grid-template-areas: 
         "rgb rgb cp"
         "msg msg msg"
@@ -127,6 +128,7 @@
     background-color: var(--cl-code);
     gap: 0;
     height: 40px;
+    width: 69px;
 }
 .pop-text .icon img{
     padding: 10px;
@@ -141,6 +143,7 @@
     display: flex;
     align-items: center;
     font-family: 'Courier New', Courier, monospace;
+    width: 95%;
 }
 .pop-text .author{
     display: none;
@@ -159,21 +162,11 @@
 
 .pop.second{
     height: 100px;
-    margin-top: 40px;
+    margin: 40px 0;
 }
 .pop.pop.second .pop-color{
     height: 50%;
 }
 .pop.second .pop-text .msg{
     display: none;
-}
-
-.pop.second .aff{
-    border-color: var(--cl-bleu);
-    display: block;
-    left: 10px;
-    right:auto;
-}
-.pop.second .aff:hover{
-    background-color: var(--cl-bleu);
 }

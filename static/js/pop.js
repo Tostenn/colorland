@@ -1,8 +1,6 @@
 // import {  } from "./fonction.js";
 import { Color } from "./color.js";
 
-
-
 /**
  * lorsqu'on click sur copy on affiche une pop  ok
  * il faut récuperer le nombre de pop           ok
@@ -18,12 +16,14 @@ export class Popup{
      * @param {HTMLElement} copyButton 
      * @param {Color} color 
      */
+    #SECOND = "second"
     constructor(parent,copyButton,color){
         this.parent = parent
         this.copyButton = copyButton
         this.color = color
         this.limit = 3
         this.lastpop = ''
+        this.curernt = ''
 
         // on récupére le templates
         this.template = this.parent.previousElementSibling
@@ -34,6 +34,7 @@ export class Popup{
     }
     /**
      * creer une nouvelle popup
+     * @param {Array} color [r, g, b, op]
      */
     newpop(color = false){
         this.autodelete()
@@ -49,6 +50,9 @@ export class Popup{
 
         // fermer la popup
         this.closePop(container)
+
+        // developper la popup
+        this.devloPOP(container)
         
         // inseret l'élément
         try {
@@ -57,6 +61,7 @@ export class Popup{
         this.parent.insertBefore(container,this.parent.firstElementChild)
 
         this.lastpop = this.parent.lastElementChild
+        this.curernt = container
     }
     autodelete(){
         if (this.limit == this.parent.childElementCount) this.lastpop.remove()
@@ -64,6 +69,7 @@ export class Popup{
     /**
      * mise en forme des valeur de la couleur 
      * @param {Array} rgbContent 
+     * @param {Array} rgbx [r, g, b, op]
     */
     writevalue(rgbContent,rgbx = false){
         rgbx = rgbx ? rgbx : this.color.rgb
@@ -78,7 +84,12 @@ export class Popup{
                 key == 'op' ? el[0].style.opacity = rgbx[key] : null
             }
             else if (rgbx){
-                rgbContent[i].innerHTML = rgbx[key]
+                if (i == rgbContent.length - 1){
+                    const op = this.color.parseop(rgbx[key].toFixed())
+                    rgbContent[i].innerHTML = op
+                    rgbContent[i].style.opacity = op
+                }
+                else rgbContent[i].innerHTML = rgbx[key]
                 i++
             }
         }
@@ -98,21 +109,28 @@ export class Popup{
                 container.remove()
                 // affiche completement la prevedente pop
                 try {
-                    this.parent.querySelector('.pop').classList.remove('second')
+                    this.parent.querySelector('.pop').classList.remove(this.#SECOND)
                 } catch (error) {}
             }, 600);
         }
     }
     /**
-     * 
+     * developper la pop
      * @param {HTMLElement} container 
      */
     devloPOP(container){
-
+        const devpop = container.querySelector("#devpop")
+        devpop.onclick = ()=>{
+            this.curernt.firstElementChild.classList.add(this.#SECOND)
+            devpop.parentElement.classList.remove(this.#SECOND)
+            this.curernt = devpop.parentElement.parentElement
+            console.log(this.curernt);
+        }
     }
     /**
      * mise a jour de la color popup
      * @param {HTMLElement} viewColor 
+     * @param {Array} color [r, g, b, op]
      */
     updateColor(viewColor,color=false){
         viewColor.style.backgroundColor = this.color.formateRGB(color)
