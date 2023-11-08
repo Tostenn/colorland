@@ -103,6 +103,9 @@
     background-color: var(--cl-red);
     color: var(--cl-blanc);
 }
+.pop.second .cr.second-dev{
+    display: block;
+}
 .cr.second-dev{
     left: 20px;
     right: auto;
@@ -156,6 +159,7 @@
 
 .pop.second{
     height: 100px;
+    margin-top: 40px;
 }
 .pop.pop.second .pop-color{
     height: 50%;

@@ -82,6 +82,7 @@ main .header{
     width: 90%;
     position: relative;
     margin: 25px auto;
+    overflow: hidden;
     color: rg;
 }
 main .header button{
@@ -109,14 +110,13 @@ main .header button{
     box-shadow: 0 0px 20px black ;
     border-radius: 15px;
     border: 0;
-    overflow: hidden;
     color: var(--cl-blanc);
 
 }
 .copier{
     position: absolute;
-    bottom: -70px;
-    right: 0;
+    bottom: -120px;
+    right: -50px;
     /* left: 0; */
     margin: 15px;
     border-radius: 20px;
@@ -137,7 +137,7 @@ main .header button{
 @keyframes copitext {
     100%{
         bottom: 0;
-        /* right: 2px; */
+        right: 0;
         opacity: 1;
     }
 }

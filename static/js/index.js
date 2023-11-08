@@ -1,5 +1,5 @@
 
-import {  } from "./fonction.js";
+// import {  } from "./fonction.js";
 import { Color } from "./color.js";
 import { Popup } from "./pop.js";
 
