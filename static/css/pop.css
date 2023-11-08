@@ -62,12 +62,28 @@
 }
 .pop-text .rgb{
     grid-area: rgb;
-    background-color: var(--cl-code);
-    color: var(--cl-blanc);
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    grid-gap: 0;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff7e;
+    background-color: var(--cl-code);
+    
+}
+.rgb .c-r{
+    color: var(--cl-red);
+}
+.rgb .c-g{
+    color: var(--cl-green);
+}
+.rgb .c-b{
+    color: var(--cl-bleu);
+}
+.rgb .c-op{
+    color: var(--cl-blanc);
 }
 
 .cr{
@@ -87,10 +103,6 @@
 
 .ppoopp::after,.icon,.rgb, .author,.msg,.icon img,.pop-color{
     border-radius: 20px;
-}
-.rgb{
-
-    grid-gap: 0;
 }
 .pop-text .icon{
     grid-gap: 0;

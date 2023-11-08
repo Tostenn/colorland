@@ -36,7 +36,14 @@
                     <button class="cr">fermer</button>
                     <div class="pop-color"></div>
                     <div class="pop-text">
-                        <div class="rgb"><span>rgb(10,50,42)</span> </div>
+                        <div class="rgb">
+                            <span class="rgb-content">rgba( 
+                                <span class="c-r"></span>,
+                                <span class="c-g"></span>,
+                                <span class="c-b"></span>,
+                                <span class="c-op"></span>
+                            )</span>
+                        </div>
                         <button class="icon">
                             <img src="/static/image/copier-alt.png" height="100%" alt="">
                         </button>
@@ -56,8 +63,8 @@
         <div class="header">
             <div class="ch-op">
                 <label for="op">opacité</label>
-                <input name="op" type="range" id="op" max="100">
-                <span class="value">50%</span>
+                <input name="op" type="range" value="100" id="op" max="100">
+                <span class="value">100%</span>
             </div>
 
             <!-- bouton pour passer en mode auto genere des color seule

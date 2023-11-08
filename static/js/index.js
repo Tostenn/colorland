@@ -17,7 +17,8 @@ const form = document.getElementById('ch-color')
 form.addEventListener('submit',e => e.preventDefault())
 
 const color = new Color(form)
-color.insert([0,23,1,0])
+color.insert([26,135,84,100])
 
-// const popParent = 
-// const pop = new Popup()
+const popParent = document.querySelector('.ppoopp')
+const copyButton = document.querySelector('.color .copier')
+const pop = new Popup(popParent,copyButton,color)
