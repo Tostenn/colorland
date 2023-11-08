@@ -91,6 +91,7 @@ export class Color{
      * @param {Array} value [r, g, b, op]
      * @returns {Boolean}
      */
+
     insert(value){
         if (Array.isArray(value) && value.length > 0){
             let n = 0
@@ -117,14 +118,17 @@ export class Color{
         this.rgb.b = codeColor[2]
         this.rgb.op =this.parseop(codeColor[3])
     }
-    applicolor(){
+    formateRGB(){
         let colorrgb = 'rgba('
         for (const vaule in this.rgb) {
             colorrgb+= this.rgb[vaule]+','
         }
         colorrgb = colorrgb.slice(0,colorrgb.length-1)
         colorrgb += ')'
-        this.colorelement.style.backgroundColor = colorrgb
+        return colorrgb
+    }
+    applicolor(){
+        this.colorelement.style.backgroundColor = this.formateRGB()
     }
     updataInput(){
         for (const name of this.dataform.keys()) {

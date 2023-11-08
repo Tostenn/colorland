@@ -20,5 +20,5 @@ const color = new Color(form)
 color.insert([26,135,84,100])
 
 const popParent = document.querySelector('.ppoopp')
-const copyButton = document.querySelector('.color .copier')
+const copyButton = form.querySelector('.copier')
 const pop = new Popup(popParent,copyButton,color)
