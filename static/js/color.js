@@ -70,12 +70,8 @@ export class Color{
     }
     
     parseop(op,inv=false){
-        if (inv){
-            
-            return op *100
-        }
-        return op > 1 ? op /100 : op
-    }  
+        return inv ? op *100 : op > 1 ? op /100 : op
+    }
     /**
      * 
      * @param {HTMLElement} el 
@@ -120,8 +116,11 @@ export class Color{
     formateRGB(rgbx = false){
         rgbx = rgbx ? rgbx : this.rgb
         let colorrgb = 'rgba('
+        let i = 0
         for (const vaule in rgbx) {
-            colorrgb+= rgbx[vaule]+','
+            colorrgb+=  i != 3?  rgbx[vaule]+',' : 
+            i++
+           
         }
         colorrgb = colorrgb.slice(0,colorrgb.length-1)
         colorrgb += ')'

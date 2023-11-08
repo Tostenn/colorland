@@ -17,6 +17,12 @@ export class Popup{
      * @param {Color} color 
      */
     #SECOND = "second"
+    /**
+     * 
+     * @param {HTMLElement} parent 
+     * @param {HTMLButtonElement} copyButton 
+     * @param {Color} color 
+     */
     constructor(parent,copyButton,color){
         this.parent = parent
         this.copyButton = copyButton
@@ -46,13 +52,16 @@ export class Popup{
         this.updateColor(container.querySelector('.pop-color'),color)
         
         // inseret le valeur
-        this.writevalue(container.querySelectorAll('.rgb-content span'),color)
+        this.writevalue(container,color)
 
         // fermer la popup
         this.closePop(container)
 
         // developper la popup
         this.devloPOP(container)
+
+        // copier la couleur
+        this.copyColor(container)
         
         // inseret l'élément
         try {
@@ -68,13 +77,13 @@ export class Popup{
     }
     /**
      * mise en forme des valeur de la couleur 
-     * @param {Array} rgbContent 
+     * @param {HTMLElement} container 
      * @param {Array} rgbx [r, g, b, op]
     */
-    writevalue(rgbContent,rgbx = false){
+    writevalue(container,rgbx = false){
         rgbx = rgbx ? rgbx : this.color.rgb
         let i = 0
-        rgbContent = Array.from(rgbContent)
+        const rgbContent = Array.from(container.querySelectorAll('.rgb-content span'))
         for (const key in rgbx) {
             const el = rgbContent.filter(
                 el => el.getAttribute('class').includes(key)
@@ -93,6 +102,7 @@ export class Popup{
                 i++
             }
         }
+        container.querySelector('.rgb-complet').innerHTML = this.color.formateRGB(rgbx)
     }
     /**
      * fermeture de la popup
@@ -134,5 +144,15 @@ export class Popup{
      */
     updateColor(viewColor,color=false){
         viewColor.style.backgroundColor = this.color.formateRGB(color)
+    }
+    /**
+     * copier de la popup
+     * @param {HTMLElement} container 
+     */
+    copyColor(container){
+        const copi = container.querySelector('.icon')
+        copi.onclick = ()=>{
+            navigator.clipboard.writeText(container.querySelector('.rgb-complet').innerHTML)
+        }
     }
 }
