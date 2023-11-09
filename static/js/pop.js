@@ -66,10 +66,12 @@ export class Popup{
         // inseret l'élément
         try {
             this.parent.firstElementChild.firstElementChild.classList.add('second')
+            this.reduit()
         } catch (error) {}
         this.parent.insertBefore(container,this.parent.firstElementChild)
 
         this.lastpop = this.parent.lastElementChild
+        
         this.curernt = container
     }
     autodelete(){
@@ -119,6 +121,7 @@ export class Popup{
                 container.remove()
                 // affiche completement la prevedente pop
                 try {
+                    this.reduit()
                     this.parent.querySelector('.pop').classList.remove(this.#SECOND)
                 } catch (error) {}
             }, 600);
@@ -131,10 +134,16 @@ export class Popup{
     devloPOP(container){
         const devpop = container.querySelector("#devpop")
         devpop.onclick = ()=>{
-            this.curernt.firstElementChild.classList.add(this.#SECOND)
+            this.reduit()
             devpop.parentElement.classList.remove(this.#SECOND)
             this.curernt = devpop.parentElement.parentElement
         }
+    }
+    /**
+     * reduit la popup active
+     */
+    reduit(){
+        this.curernt.firstElementChild.classList.add(this.#SECOND)
     }
     /**
      * mise a jour de la color popup
