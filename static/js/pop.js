@@ -160,7 +160,11 @@ export class Popup{
     copyColor(container){
         const copi = container.querySelector('.icon')
         copi.onclick = ()=>{
-            navigator.clipboard.writeText(container.querySelector('.rgb-complet').innerHTML)
+            const colorRgb = container.querySelector('.rgb-complet').innerHTML
+            navigator.clipboard.writeText(colorRgb)
+            const copieSucces = container.querySelector('.copier-succes')
+            copieSucces.style.animationName = 'copier-s'
+            copi.style.backgroundColor = colorRgb
         }
     }
 }
