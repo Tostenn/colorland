@@ -12,13 +12,13 @@ a{
     color: inherit;
 }
 
-:is(header  div:first-child,footer > div:first-child) img{
+:is(header  div:first-child,footer > div:first-child,.copier-succes) img{
     border-radius: 20pc;
     background-color: var(--cl-blanc);
     margin: 0 10px;
     transition: background cubic-bezier(0.55, 0.055, 0.675, 0.19) ;
 }
-:is(header  div:first-child,footer > div:first-child) p{
+:is(header  div:first-child,footer > div:first-child,.copier-succes) p{
     font-size: 1em;
     text-transform: uppercase;
     font-weight: bold;

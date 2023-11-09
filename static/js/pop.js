@@ -134,7 +134,6 @@ export class Popup{
             this.curernt.firstElementChild.classList.add(this.#SECOND)
             devpop.parentElement.classList.remove(this.#SECOND)
             this.curernt = devpop.parentElement.parentElement
-            console.log(this.curernt);
         }
     }
     /**
