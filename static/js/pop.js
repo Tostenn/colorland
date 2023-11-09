@@ -17,6 +17,7 @@ export class Popup{
      * @param {Color} color 
      */
     #SECOND = "second"
+    #ACTIVE = "active"
     /**
      * 
      * @param {HTMLElement} parent 
@@ -43,9 +44,17 @@ export class Popup{
      * @param {Array} color [r, g, b, op]
      */
     newpop(color = false){
+
+        // active
+        this.parent.classList.add(this.#ACTIVE)
+
+
+        // respect la limitation de popup
         this.autodelete()
+
         // cloner le template
         const container =  document.createElement('div')
+        container.classList.add('pop-parent')
         container.append(this.template.content.cloneNode(true))
 
         // mise a jour de la color
@@ -119,6 +128,8 @@ export class Popup{
 
             setTimeout(() =>{
                 container.remove()
+                if (!this.parent.childElementCount)
+                    this.parent.classList.remove(this.#ACTIVE)
                 // affiche completement la prevedente pop
                 try {
                     this.reduit()

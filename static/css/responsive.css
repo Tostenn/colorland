@@ -4,6 +4,7 @@
     footer {
         flex-direction: column;
         padding-left: 20px;
+        overflow: hidden;
         position: relative;
     }
     footer::after{
@@ -72,33 +73,38 @@
     }
     .ppoopp{
         display: none;
+        inset: 0;
         margin: 0;
         padding: 0;
         width: 100%;
-        inset: 0 0 0 0;
     }
-    .ppoopp::after{
+
+    .ppoopp.active{
+        display: block;
+    }
+    .ppoopp.active::after{
         content: '';
-        /* position: absolute; */
+        position: absolute;
         inset: -15px ;
-        /* padding: ; */
-        
         backdrop-filter: blur(12px) saturate(180%);
         -webkit-backdrop-filter: blur(16px) saturate(180%);
         background-color: rgba(17, 25, 40, 0.7);
         z-index: -1;
         
     }
-    .ppoopp .pop{
-        overflow: visible;
-        z-index: 2;
+    .ppoopp .pop-parent{
         position: absolute;
-        top: 50%;
-        background-color: transparent;
-        left: 50%;
         transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
         width: 80%;
-       
+        overflow: visible;
+        background-color: transparent;
+    }
+
+    .ppoopp .pop{
+        width: 100%;
+        z-index: 2;
     }
     .pop.second{
         display: none;
@@ -118,24 +124,24 @@
         top: -50px;
         width: 50%;
         margin: 0;
+        opacity: 1;
     }
     .pop-text{
         width: 100%;
     }
     .pop-text .rgb{
-        transform: translatex(15%);
         font-size: 20px;
     }
     .pop-text .icon{
         grid-area: cp;
         display: flex;
         align-items: center;
-        background-color: transparent;
-        justify-content: end;
+        /* background-color: transparent; */
+        justify-content: center;
         height: 50px;
     }
     .pop-text .icon img{
-        background-color: var(--cl-code);
+        background-color: inherit;
         padding: 10px;
     }
     .pop-text .msg{

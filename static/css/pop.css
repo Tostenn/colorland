@@ -138,6 +138,7 @@
 }
 .pop-text .icon img{
     padding: 10px;
+    
 }
 .pop-text .msg{
     grid-area: msg;
@@ -181,6 +182,8 @@
     position: absolute;
     top: 100%;
     overflow: hidden;
+    left: 0;
+    right: 0;
     bottom: 0;
     display: flex;
     flex-flow: column nowrap;
