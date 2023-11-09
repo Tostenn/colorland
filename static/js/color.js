@@ -68,7 +68,7 @@ export class Color{
             }
         })
     }
-    
+
     parseop(op,inv=false){
         return inv ? op *100 : op > 1 ? op /100 : op
     }
@@ -118,12 +118,14 @@ export class Color{
         let colorrgb = 'rgba('
         let i = 0
         for (const vaule in rgbx) {
-            colorrgb+=  i != 3?  rgbx[vaule]+',' : 
+            colorrgb+=  i == 3? this.parseop(rgbx[vaule].toFixed())+',' :
+             rgbx[vaule] + ','
             i++
            
         }
         colorrgb = colorrgb.slice(0,colorrgb.length-1)
         colorrgb += ')'
+        // console.log(colorrgb,colorrgb.length);
         return colorrgb
     }
     applicolor(){

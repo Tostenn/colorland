@@ -8,12 +8,13 @@
  */
 export default async function fec(url,body= false) {
     const head = {
-        'Accept' : 'application/json',
-        'Content-Type':"application/json"
+        // 'Accept' : 'application/json',
+        // 'Content-Type':"application/json",
+
     }
     let r
     if(!body) {
-        r = await fetch(url,{headers:head})
+        r = await fetch(url,{headers:head,mode:'no-cors'})
     }
     else {
         r = await fetch(
@@ -27,8 +28,8 @@ export default async function fec(url,body= false) {
     }
     if (r.ok){
         try {
-            
-            return r.json()
+            console.log(r);
+            return r.text()
         } catch (error) {
             return true
         }

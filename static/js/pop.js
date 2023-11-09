@@ -1,5 +1,5 @@
-// import {  } from "./fonction.js";
 import { Color } from "./color.js";
+import { Api } from "./api.js";
 
 /**
  * lorsqu'on click sur copy on affiche une pop  ok
@@ -23,11 +23,13 @@ export class Popup{
      * @param {HTMLElement} parent 
      * @param {HTMLButtonElement} copyButton 
      * @param {Color} color 
+     * @param {Api} api 
      */
-    constructor(parent,copyButton,color){
+    constructor(parent,copyButton,color,api){
         this.parent = parent
         this.copyButton = copyButton
         this.color = color
+        this.api = api
         this.limit = 3
         this.lastpop = ''
         this.curernt = ''
@@ -47,7 +49,6 @@ export class Popup{
 
         // active
         this.parent.classList.add(this.#ACTIVE)
-
 
         // respect la limitation de popup
         this.autodelete()
@@ -74,7 +75,7 @@ export class Popup{
         
         // inseret l'élément
         try {
-            this.parent.firstElementChild.firstElementChild.classList.add('second')
+            // this.parent.firstElementChild.firstElementChild.classList.add(this.#SECOND)
             this.reduit()
         } catch (error) {}
         this.parent.insertBefore(container,this.parent.firstElementChild)
@@ -132,8 +133,12 @@ export class Popup{
                     this.parent.classList.remove(this.#ACTIVE)
                 // affiche completement la prevedente pop
                 try {
-                    this.reduit()
-                    this.parent.querySelector('.pop').classList.remove(this.#SECOND)
+                    // console.log('fermer current => ',this.curernt);
+                    try {this.reduit()} catch (error) {}
+                    this.curernt = this.parent.querySelector('.pop').parentElement
+                    this.curernt.firstElementChild.classList.remove(this.#SECOND)
+                    // console.log('fermer current final => ',this.curernt);
+                    
                 } catch (error) {}
             }, 600);
         }
@@ -145,9 +150,11 @@ export class Popup{
     devloPOP(container){
         const devpop = container.querySelector("#devpop")
         devpop.onclick = ()=>{
+            // console.log('devpo current =>', this.curernt);
             this.reduit()
             devpop.parentElement.classList.remove(this.#SECOND)
             this.curernt = devpop.parentElement.parentElement
+            // console.log('devpo current final =>', this.curernt);
         }
     }
     /**
@@ -155,6 +162,7 @@ export class Popup{
      */
     reduit(){
         this.curernt.firstElementChild.classList.add(this.#SECOND)
+        // console.log(this.curernt.firstElementChild);
     }
     /**
      * mise a jour de la color popup
@@ -165,6 +173,16 @@ export class Popup{
         viewColor.style.backgroundColor = this.color.formateRGB(color)
     }
     /**
+     * compte le nombre de fois qu'une couleur a été copier
+     * @param {HTMLElement} container 
+     * @param {string} color
+     */
+    apicount(container,color){
+        const countcolor = container.querySelector('.compter span')
+        color = this.api.getColor(color)[color]
+        countcolor.innerHTML = color
+    }
+    /**
      * copier de la popup
      * @param {HTMLElement} container 
      */
@@ -173,6 +191,7 @@ export class Popup{
         copi.onclick = ()=>{
             const colorRgb = container.querySelector('.rgb-complet').innerHTML
             navigator.clipboard.writeText(colorRgb)
+            this.apicount(container,colorRgb)
             const copieSucces = container.querySelector('.copier-succes')
             copieSucces.style.animationName = 'copier-s'
             copi.style.backgroundColor = colorRgb
