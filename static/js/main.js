@@ -14,7 +14,7 @@ export default async function fec(url,body= false) {
     }
     let r
     if(!body) {
-        r = await fetch(url,{headers:head,mode:'no-cors'})
+        r = await fetch(url,{headers:head,mode:'cors'})
     }
     else {
         r = await fetch(
@@ -28,8 +28,7 @@ export default async function fec(url,body= false) {
     }
     if (r.ok){
         try {
-            console.log(r);
-            return r.text()
+            return r.json()
         } catch (error) {
             return true
         }

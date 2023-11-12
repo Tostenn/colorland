@@ -16,8 +16,8 @@ class DataColor{
      */
     public function color_exits($color) {
         $cmd = "select nom from colors where nom='$color'";
-        $cmd = $this->bd->query($cmd)->fetch();
-        if (!key_exists("nom",$cmd)){
+        $cmd = $this->bd->query($cmd)->fetchAll();
+        if (!key_exists(0,$cmd)){
             $cmd = "insert into colors (nom,compter) values('$color',1)";
             $this->bd->query($cmd);
         }

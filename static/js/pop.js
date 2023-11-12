@@ -1,6 +1,8 @@
 import { Color } from "./color.js";
 import { Api } from "./api.js";
 
+
+const api = new Api() 
 /**
  * lorsqu'on click sur copy on affiche une pop  ok
  * il faut récuperer le nombre de pop           ok
@@ -9,7 +11,7 @@ import { Api } from "./api.js";
  * reduis les ancienne pop                      ok
  * nombre de pop visible esr de 3               ok
  */
-export class Popup{
+export class Popup extends Api{
     /**
      * ggestion des popup
      * @param {HTMLElement} parent 
@@ -22,18 +24,16 @@ export class Popup{
      * 
      * @param {HTMLElement} parent 
      * @param {HTMLButtonElement} copyButton 
-     * @param {Color} color 
-     * @param {Api} api 
+     * @param {Color} color
      */
-    constructor(parent,copyButton,color,api){
+    constructor(parent,copyButton,color){
+        super()
         this.parent = parent
         this.copyButton = copyButton
         this.color = color
-        this.api = api
         this.limit = 3
         this.lastpop = ''
         this.curernt = ''
-
         // on récupére le templates
         this.template = this.parent.previousElementSibling
         
@@ -179,8 +179,13 @@ export class Popup{
      */
     apicount(container,color){
         const countcolor = container.querySelector('.compter span')
-        color = this.api.getColor(color)[color]
-        countcolor.innerHTML = color
+        
+        super.getColor(color)
+            .then(l => {
+                console.log(l);
+                countcolor.innerHTML = l?.compter
+            })
+            .catch(l => console.log(l))
     }
     /**
      * copier de la popup

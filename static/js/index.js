@@ -1,6 +1,7 @@
 import { Color } from "./color.js";
 import { Popup } from "./pop.js";
-import { Api } from "./api.js";
+// import { Api } from "./api.js";
+// import fec from "./main.js";
 
 
 const message = [
@@ -20,13 +21,12 @@ color.insert([26,135,84,100])
 
 const popParent = document.querySelector('.ppoopp')
 const copyButton = form.querySelector('.copier')
-const api = new Api() 
-const pop = new Popup(popParent,copyButton,color,api)
+const pop = new Popup(popParent,copyButton,color)
 pop.newpop([100,30,100,1])
 pop.newpop([100,30,200,5.80011111])
 
 
-fetch('http://localhost:8080/?color=',{mode:'cors'})
-    .then(l => l.text())
-        .then(l => console.log(l))
-    .catch(l => console.log(l))
+// fec('http://localhost:8080/?color=color',{mode:'cors'})
+//     // .then(l => l.json())
+//         .then(l => console.log(l))
+//     .catch(l => console.log(l))
