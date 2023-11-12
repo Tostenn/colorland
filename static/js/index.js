@@ -26,7 +26,7 @@ pop.newpop([100,30,100,1])
 pop.newpop([100,30,200,5.80011111])
 
 
-// fetch('http://localhost:8080/index.php',{mode:'no-cors'})
-//     .then(l => l.text())
-//         .then(l => console.log(l))
-//     .catch(l => console.log(l))
+fetch('http://localhost:8080/?color=',{mode:'cors'})
+    .then(l => l.text())
+        .then(l => console.log(l))
+    .catch(l => console.log(l))
