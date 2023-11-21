@@ -1,0 +1,234 @@
+@import url(/static/css/variable.css);
+/* popup */
+.ppoopp{
+    transition: all 2s;
+    position: fixed;
+    bottom: 0;
+    background-color: transparent;
+    right: 0;
+    z-index: 4;
+    margin: 20px;
+    opacity: 1;
+}
+.pop{
+    width: 300px;
+    height: 250px;
+    display: block;
+    position: relative;
+    animation: entre .5s 1 forwards;
+    opacity: 0;
+    transform: translatex(100%);
+    transition: all linear .3s ;
+}
+@keyframes entre {
+    100%{
+        transform: translatex(0);
+        opacity: 1;
+        
+    }
+}
+@keyframes sortir {
+    100%{
+        transform: translatex(100%);
+        opacity: 0;
+        
+    }
+}
+
+.pop::after{
+    border-radius: 20px;
+    content: '';
+    position: absolute;
+    inset: -15px ;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.7);
+    z-index: -1;
+}
+.pop-color{
+    width: 100%;
+    height: 140px;
+    background-color: var(--cl-green);
+    position: relative;
+    overflow: hidden;
+}
+.pop-text{
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+    grid-template-areas: 
+        "rgb rgb cp"
+        "msg msg msg"
+        "auth c c"
+    ;
+    grid-gap: 10px;
+}
+.pop-text .rgb{
+    grid-area: rgb;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 0;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff7e;
+    background-color: var(--cl-code);
+    
+}
+.rgb .c-r{
+    color: var(--cl-red);
+}
+.rgb .c-g{
+    color: var(--cl-green);
+}
+.rgb .c-b{
+    color: var(--cl-bleu);
+}
+.rgb .c-op{
+    color: var(--cl-blanc);
+}
+
+.cr{
+    position: absolute;
+    right: 0;
+    margin: 10px 20px 0 0;
+    background-color: transparent;
+    border: 1px solid var(--cl-red);
+    padding: .5em;
+    border-radius: 20px;
+    transition: all .5s;
+    z-index: 2;
+    opacity: 0.5;
+}
+.cr:hover{
+    background-color: var(--cl-red);
+    color: var(--cl-blanc);
+    opacity: 1;
+}
+.pop.second .cr.second-dev{
+    display: block;
+}
+.cr.second-dev{
+    left: 20px;
+    right: auto;
+    border-color: var(--cl-bleu);
+}
+.cr.second-dev:hover{
+    background-color: var(--cl-bleu);
+    color: var(--cl-blanc);
+}
+
+.ppoopp::after,.icon,.rgb, .author,.msg,.icon img,.pop-color{
+    border-radius: 20px;
+}
+.pop-text .icon{
+    grid-gap: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cl-code);
+    gap: 0;
+    height: 40px;
+    width: 69px;
+    transition: all linear .5s;
+}
+.pop-text .icon img{
+    padding: 10px;
+    
+}
+.pop-text .msg{
+    grid-area: msg;
+    margin: 0;
+    padding: 10px;
+    font-size: 15px;
+    background-color: var(--cl-blanc);
+    color: #000;
+    display: flex;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    width: 95%;
+}
+.pop-text .author{
+    display: none;
+    font-family: Pacifico-Regular;
+    font-size: 20px;
+    grid-area: auth;
+    padding: 0;
+    justify-content: center;
+    background-color: var(--cl-blanc);
+    color: #000;
+}
+.author span{
+    width: 100%;
+    display: block;
+}
+
+.pop.second{
+    height: 100px;
+    margin: 40px 0;
+}
+.pop.pop.second .pop-color{
+    height: 50%;
+}
+.pop.second .pop-text .msg{
+    display: none;
+}
+
+.copier-succes{
+    position: absolute;
+    top: 100%;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 15px;
+    color: var(--cl-blanc);
+    background-color: var(--cl-code);
+    justify-content: space-around;
+    animation: copiers 1s 1 forwards;
+    opacity: 0;
+} 
+@keyframes copier-s {
+    100%{
+        opacity: 1;
+        inset: 0;
+        overflow: visible;
+    }
+}
+
+.copier-succes a div.logo{
+    display: flex;
+}
+.copier-succes .text{
+    margin-left: 5px;
+    line-height: 35px;
+}
+.copier-succes .text span{
+    background-color: var(--cl-green);
+    padding: 5px;
+}
+.copier-succes .compter{
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.copier-succes .compter span{
+    background-color: var(--cl-blanc);
+    color: var(--cl-code);
+    padding: 3px;
+}
+
+.second .copier-succes img,
+.second .copier-succes p,
+.second .copier-succes .compter{
+    display: none;
+}
+.second .copier-succes .logo{
+    align-items: center;
+    justify-content: center;
+}

@@ -1,59 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>couleurland</title>
-    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="/static/css/stylegenerale.css">
+    <link rel="stylesheet" href="/static/css/pop.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
     <link rel="icon" type="image/x-icon" href="ico.ico">
 </head>
-<body >
-    <div class="espace"></div>
-    <div class="ppoopp">
-        <div class="pos">
-            <div class="croix"></div>
-            <div class="pos-croix1">
-                <div class="croix1"></div>
+<body>
+    <header>
+        <a href="https://github.com/Tostenn">
+            <div class="logo">
+                <img src="/static/image/ico.ico" height="50" alt="">
+                <p>couleurland</p>
             </div>
+        </a>
+        <div>
+            <a href="https://github.com/Tostenn/random_color">
+                <button>code source</button>
+            </a>
         </div>
-        <div class="pop">
+    </header>
 
-            <div class="pop-color"></div>
-            <div class="pop-text">
-                <span>copier : </span>
-                <code class="rgb">rgb(10,50,42)</code>
-                <p class="msg">tres bon choix cette couleur apporte la joie</p>
+    <!-- poppup active lorsqu'on veut copier -->
+    <section>
+        <template id="pop-item">
+            <div class="pop borderradus">
+                <button class="cr" id="fermer-pop">fermer</button>
+                <button class="cr dn second-dev" id="devpop">developper</button>
+                <div class="pop-color">
+                    <div class="copier-succes">
+                        <a href="https://github.com/Tostenn">
+                            <div class="logo">
+                                <img src="/static/image/ico.ico" height="50" alt="">
+                                <div class="text">
+                                    <p>couleurland</p>
+                                    <span class="borderradus">copier avec succéss</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="compter">
+                            cette couleur a était copier 
+                            <span class="borderradus">900m</span> fois
+                        </div>
+                    </div>
+                </div>
+                <div class="pop-text">
+                    <div class="rgb">
+                        <span class="rgb-content">rgba( 
+                            <span class="c-r"></span>,
+                            <span class="c-g"></span>,
+                            <span class="c-b"></span>,
+                            <span class="c-op"></span>
+                        )</span>
+                        <span class="rgb-complet dn"></span>
+                    </div>
+                    <button class="icon">
+                        <img src="/static/image/copier-alt.png" height="100%" alt="">
+                    </button>
+                    <div class="msg dn">
+                        tres bon choix cette couleur apporte la joie
+                    </div>
+                    <div class="author">by T_xOx_T</div>
+                </div>
             </div>
-            <code>by T_xOx_T</code>
+        </template>
+        <div class="ppoopp active">
         </div>
-    </div>
-    <center>
-        <div class="color">
+    </section>
+
+    <form id="ch-color">
+    <main>
+        <div class="header">
+            <div class="ch-op">
+                <label for="op">opacité</label>
+                <input name="op" type="range" value="100" id="op" max="100">
+                <span class="value">100%</span>
+            </div>
+
+            <!-- bouton pour passer en mode auto genere des color seule
+                 et il utilisateur a statisfait li l'arret
+                 <button>mode auto</button>
+            <button>couleur précedente</button> -->
         </div>
-    </center>
-    <div class="espace1" id="ep1"></div>
-    <div class="barre">
-        <p class="barre-copi">copier</p>
-    </div>
-    <div class="espace1">
-    </div>
-    <div class="align">
-        <div class="r">
-            <div class="espace"></div>
-            <div class="ombre">R</div>
-            <input type="text" class="text" maxlength="3" pattern="[0-9]*" value="255">
+
+        <div class="button-pos">
+            <button class="color">
+                <button class="copier">copier</button>
+            </button>
         </div>
-        <div class="g">
-            <div class="espace"></div>
-            <div class="ombre">G</div>
-            <input type="text" class="text" maxlength="3" value="0" pattern="[0-9]*">
         </div>
-        <div class="b">
-            <div class="espace"></div>
-            <div class="ombre">B</div>
-            <input type="text" class="text" maxlength="3" value="0" pattern="[0-9]*">
+        <div class="champs">
+                <div class="r item">
+                    <input name="r" type="text" max="255" class="text" maxlength="3" pattern="[0-9]*" value="26">
+                </div>
+                <div class="g item">
+                    <input type="text" max="255" name="g" class="text" maxlength="3" value="135" pattern="[0-9]*">
+                </div>
+                <div class="b item">
+                    <input type="text" max="255" name="b" class="text" maxlength="3" value="84" pattern="[0-9]*">
+                </div>
         </div>
-    </div>
-    <script src="color.js"></script>
+    </main>
+    </form>
+
+    <footer>
+        <div class="container">
+            <a href="https://github.com/Tostenn">
+                <div class="logo">
+                    <img src="/static/image/ico.ico" height="50" alt="">
+                    <div class="fl">
+                        <p>couleurland</p>
+                        <div class="des">
+                            manque d'idée de couleur à choisir pour vos projets
+                            super génial, vous être au bon endroit
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="link-group no tree">
+            <h3>projet similaire </h3>
+            <a href="">
+                <div class="item tree">carreau chinois</div>
+            </a>
+        </div>
+        <div  class="link-group tree">
+            <h3>autre projet</h3>
+            <a href=""><div class="item tree">module py-Pays</div></a>
+            <a href=""><div class="item tree">py-Carte-Id</div></a>
+            <a href=""><div class="item tree">jeux console python</div></a>
+            <a href=""><div class="item tree">country capital</div></a>
+            <a href=""><div class="item tree">start web easily</div></a>
+        </div>
+    </footer>
+
+    <script type="module" src="/static/js/index.js"></script>
+
 </body>
 </html>

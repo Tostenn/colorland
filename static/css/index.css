@@ -1,0 +1,325 @@
+
+footer,header{
+    display: flex;
+    background-color: #000;
+    flex-wrap: wrap;
+    color: var(--cl-blanc);
+    justify-content: space-around;
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+:is(header  div:first-child,footer > div:first-child,.copier-succes) img{
+    border-radius: 20pc;
+    background-color: var(--cl-blanc);
+    margin: 0 10px;
+    transition: background cubic-bezier(0.55, 0.055, 0.675, 0.19) ;
+}
+:is(header  div:first-child,footer > div:first-child,.copier-succes) p{
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-family: 'Pacifico-Regular';
+}
+:is(header)  div,footer .container div:first-child{
+    display: flex;
+    align-items: center;
+}
+header div:last-child button {
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0.5em;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+main{
+    width: 90%;
+    margin: 25px auto;
+    background-color: #25262a;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 15px;
+}
+.ch-op{
+    background-color: var(--cl-blanc);
+    width: 230px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    
+    font-family:'Courier New', Courier, monospace;
+}
+.ch-op label{
+    padding: 5px;
+    background-color: var(--cl-bleu);
+    color: var(--cl-blanc);
+}
+.ch-op #op{
+    width: 50%;
+    border: 1px solid var(--cl-red);
+    margin: 0 5px;
+}
+.ch-op span{
+    padding: 5px;
+    width: 20%;
+    justify-self: end;
+    color: var(--cl-blanc);
+    background-color: var(--cl-green);
+}
+
+main .header{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
+.button-pos{
+    width: 90%;
+    position: relative;
+    margin: 25px auto;
+    overflow: hidden;
+    color: rg;
+}
+main .header button{
+    background-color: var(--cl-bleu);
+    padding: .5em;
+    color: var(--cl-blanc);
+    border-radius: 20px;
+}
+@media screen and (max-width:530px) {
+    main .ch-op{
+        width: 90%;
+    }
+    main .header button{
+        width: 40%;
+        margin-top: 10px;
+    }
+    
+}
+
+.color{
+    height: 400px;
+    width: 100%;
+    transition: all 1s;
+    background-color: var(--cl-green);
+    box-shadow: 0 0px 20px black ;
+    border-radius: 15px;
+    border: 0;
+    color: var(--cl-blanc);
+
+}
+.copier{
+    position: absolute;
+    bottom: -120px;
+    right: auto;
+    left: -50px;
+    margin: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0px 5px black ;
+    color: var(--cl-blanc);
+    font-weight: bold;
+    font-family: Pacifico-Regular;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    background-color: transparent;
+    border: 1px solid #25262a;
+    font-size: 1em;
+    padding: 0.5em;
+    transition: all .5s;
+    animation: copitext .6s forwards;
+    opacity: 1;
+}
+@keyframes copitext {
+    100%{
+        bottom: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+.color::after{
+    content: 'click me';
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    color: var(--cl-blanc)fffa4;
+    transform: translate(-50%,-50%);
+    animation: colortext .6s forwards;
+    opacity: 0;
+}
+@keyframes colortext {
+    100%{
+        top: 50%;
+        opacity: 1;
+    }
+}
+main .copier:hover {
+    background-color: #25262a;
+}
+.champs{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.r,.g,.b{
+    width: 26%;
+    height: 150px;
+    text-align: center;
+    font-size: 400%;
+    border-radius: 15px;
+    overflow: hidden;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    transition: filter .3s;
+
+}
+.champs .item::after{
+    /* z-index: -1; */
+    position: absolute;
+    content: 'r';
+    font-size: 300%;
+    top: -20%;
+    text-transform: uppercase;
+    left: 0;
+    color: #ffffff86;
+    
+}
+.champs .item.g::after{
+    content: 'g';
+}
+.champs .item.b::after{
+    content: 'b';
+}
+
+.r{
+    background-color: var(--cl-red);   
+}
+.g{
+    background-color: var(--cl-green);
+}
+.b{
+    background-color: var(--cl-bleu);
+}
+[type="text"]{
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%);
+    color: var(--cl-blanc);
+    font-weight: bold;
+    font-size: 90%;
+    width: 110px;
+    background-color: transparent;
+    outline: none;
+    border-bottom: 2px solid var(--cl-blanc);
+    z-index: 2;
+}
+.champs:hover .item:not(:hover) {
+    transition: all .5s;
+    opacity: 0.5;
+    filter: blur(5px) contrast(70%);
+    & [type="text"]{
+        border: 0;
+    }
+}
+
+.ombre{
+    text-align: center;
+    font-size: 300%;
+    color: aqua;
+    text-shadow: -90px -212px 5px rgba(0, 0, 0, 0.507);
+    transform: translate(20%,156px);
+    height: 10px;
+    /* overflow: hidden; */
+}
+
+input:invalid{
+    color: var(--cl-red);
+    animation-name: ip;
+    animation-duration: 0.3s;
+    transition: all .2s ease-in-out;
+    animation-iteration-count: 2;
+}
+@keyframes ip{
+    50%{transform: translate(30px);}
+    100%{transform: translate(-30px);}
+}
+
+/* footer------------ */
+footer .container{
+    width: 40%;
+    margin: 5px 0;
+}
+footer .container .fl{
+    display: flex;
+    flex-direction: column;
+}
+footer img{
+    align-self: start;
+}
+
+footer .container p{
+    margin: 10px 0;
+}
+footer .container .des{
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+}
+footer h3{
+    text-transform: capitalize;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+footer a .item{
+    font-family:Arial, Helvetica, sans-serif ;
+    margin: 5px 0;
+    position: relative;
+    padding-left: 40px;
+}
+footer a .item:hover{
+    text-decoration: underline;
+}
+footer a .item:hover::after{
+    border-bottom-color: var(--cl-bleu);
+    transition: all .3s;
+}
+footer a .item.tree::after{
+    top: -5px;
+    left: 5px;
+    width: 25px;
+    height: 15px;
+}
+footer .link-group{
+    position: relative;
+}
+footer .link-group::before{
+    position: absolute;
+    content: '';
+    background-color: var(--cl-blanc);
+    width: 3px;
+    top: 25px;
+    left: 5px;
+    bottom: 25px;
+}
+footer .link-group.no::before{
+    display: none;
+}
+footer .tree::after{
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 3px solid;
+    border-top: 0;
+    border-right: 0;
+    border-radius: 0 20px 0;
+    top: -10px;
+    left: -25px;
+
+}
