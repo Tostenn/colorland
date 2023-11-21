@@ -26,7 +26,7 @@ use \PDO;
 
     /**
     * connection direct a la base de donnée
-    * @return mixed 
+    * @return PDO 
     */
     function dataBase($name='color') {
         

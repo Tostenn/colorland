@@ -2,22 +2,50 @@
 include_once 'fonction/datacolor.php';
 header('Access-Control-Allow-Origin: *');
 
-// use function Kouya\{dataBase,pre};
+use function Kouya\{dataBase,pre};
 
+// var_dump(@$_GET['okok']);
 
-// var_dump($_GET);
+// die();
 // condition d'arret du server
-if (!(key_exists('color',$_GET) || key_exists('datall',$_GET)))
+// $_GET = [
+//     'get-color-all' => 'ze',
+//     'limit'=> 5,
+// ];
+
+if (!(
+    key_exists('get-color',$_GET) || 
+    key_exists('set-color',$_GET) ||
+    key_exists('get-color-all',$_GET)
+))
 die('not key color');
 
 // connection a la base de donnés
 $bd = new datacolor();
 
-if (key_exists('color',$_GET)){
-    $res = $bd->color_exits($_GET['color']);
+if (key_exists('get-color',$_GET)){
+    $res = $bd->getColor($_GET['get-color']);
     echo json_encode($res);
 }
-else echo json_encode($bd->data_all());
 
-// var_dump(json_decode(file_get_contents('d.json'),true));
-// echo json_encode();
+if (key_exists('set-color',$_GET)){
+    $res = $bd->setColor($_GET['set-color']);
+    echo json_encode(['status' => $res]);
+}
+if (key_exists('get-color-all',$_GET)){
+    
+    echo json_encode($bd->data_all(
+        @$_GET['limit'],
+        @$_GET['sub'],
+        @$_GET['inf'],
+    ));
+}
+
+/*
+get-color : retourne le nombre de copi de la color si elle existe sinon return none
+set-color : ajout une nouvelle color et return 1
+get-color-all
+    -limit 
+    -sup >
+    -inf <
+*/

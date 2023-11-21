@@ -179,11 +179,13 @@ export class Popup extends Api{
      */
     apicount(container,color){
         const countcolor = container.querySelector('.compter span')
-        
-        super.getColor(color)
-            .then(l => {
-                console.log(l);
-                countcolor.innerHTML = l?.compter
+        super.setColor(color)
+            .then( () => {
+                super.getColor(color)
+                .then( l => {
+                        countcolor.innerHTML = l?.compter
+                    })
+                    .catch(l => console.log(l))
             })
             .catch(l => console.log(l))
     }
