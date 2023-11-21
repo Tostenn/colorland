@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'Pacifico-Regular';
-    src: url(/static/police/Pacifico/Pacifico-Regular.ttf) format('opentype');
+    src: url(../police/Pacifico/Pacifico-Regular.ttf) format('opentype');
 }
-@import url(variable.css);
+/* @import url(/variable.css); */
 
 *{
     margin: 0;
