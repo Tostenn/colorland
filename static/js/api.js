@@ -2,7 +2,7 @@
 import fec, {  } from "./main.js";
 
 export class Api{
-    host = 'http://localhost:8080/server/index.php?'
+    host = 'https://colorland.000webhostapp.com/?'
     url = {
         'get': this.host
     }
