@@ -109,6 +109,7 @@ main .header button{
     background-color: var(--cl-green);
     box-shadow: 0 0px 20px black ;
     border-radius: 15px;
+    /* overflow: hidden; */
     border: 0;
     color: var(--cl-blanc);
 
