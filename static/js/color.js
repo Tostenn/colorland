@@ -70,7 +70,8 @@ export class Color{
     }
 
     parseop(op,inv=false){
-        return inv ? op *100 : op > 1 ? op /100 : op
+        if(inv) return op *100
+        return op > 1 ? op /100 : op
     }
     /**
      * 
@@ -113,12 +114,17 @@ export class Color{
         this.rgb.b = codeColor[2]
         this.rgb.op =this.parseop(codeColor[3])
     }
+    /**
+     * 
+     * @param {string} rgbx 
+     * @returns {string}
+     */
     formateRGB(rgbx = false){
         rgbx = rgbx ? rgbx : this.rgb
         let colorrgb = 'rgba('
         let i = 0
         for (const vaule in rgbx) {
-            colorrgb+=  i == 3? this.parseop(rgbx[vaule].toFixed())+',' :
+            colorrgb+=  i == 3? this.parseop(rgbx[vaule].toFixed(2))+',' :
              rgbx[vaule] + ','
             i++
            
@@ -129,6 +135,7 @@ export class Color{
         return colorrgb
     }
     applicolor(){
+        console.log(this.formateRGB(),this.formateRGB().length);
         this.colorelement.style.backgroundColor = this.formateRGB()
     }
     updataInput(){
