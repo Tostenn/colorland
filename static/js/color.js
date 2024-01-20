@@ -135,7 +135,7 @@ export class Color{
         return colorrgb
     }
     applicolor(){
-        console.log(this.formateRGB(),this.formateRGB().length);
+        // console.log(this.formateRGB(),this.formateRGB().length); 
         this.colorelement.style.backgroundColor = this.formateRGB()
     }
     updataInput(){
