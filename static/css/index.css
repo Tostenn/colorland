@@ -83,7 +83,7 @@ main .header{
     position: relative;
     margin: 25px auto;
     overflow: hidden;
-    color: rg;
+    border-radius: 15px;
 }
 main .header button{
     background-color: var(--cl-bleu);
@@ -112,7 +112,7 @@ main .header button{
     /* overflow: hidden; */
     border: 0;
     color: var(--cl-blanc);
-
+    /* display: none; */
 }
 .copier{
     position: absolute;
