@@ -157,4 +157,10 @@
         display: block;
         text-align: center;
     }
+    .avis form {
+        width: 90%;
+    }
+    .avis form *{
+        width: 100%;
+    }
 }

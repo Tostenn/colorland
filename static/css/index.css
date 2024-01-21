@@ -197,16 +197,16 @@ main .copier:hover {
     content: 'b';
 }
 
-.r{
+.champs .r{
     background-color: var(--cl-red);   
 }
-.g{
+.champs .g{
     background-color: var(--cl-green);
 }
-.b{
+.champs .b{
     background-color: var(--cl-bleu);
 }
-[type="text"]{
+.champs [type="text"]{
     position: absolute;
     text-align: center;
     left: 50%;

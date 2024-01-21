@@ -1,8 +1,5 @@
 /* section avis */
 
-.avis{
-    /* position: absolute; */
-}
 
 .avis .but button{
     position: fixed;
@@ -40,8 +37,52 @@
     box-shadow: 0 0 10PX var(--cl-blanc) ;
     left: 110%;
 }
-.avis form{
-    display: none;
+
+.avis .omb{
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.7);
 }
+.avis form{
+    /* display: none; */
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    text-align: left;
+}
+.avis form h3{
+    color: var(--cl-blanc);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 7px;
+    font-family: Pacifico-Regular;
+}
+.avis form *{
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 80%;
+    outline: none;
+    resize: vertical;
+    font-size: 16px;
+    padding: .5em .5em;
+    border-radius: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.avis form textarea{
+    height: 150px;
+}
+.avis form button{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cl-green);
+    color: var(--cl-blanc);
+}
+
 
 /* fin section avis */
