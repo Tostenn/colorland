@@ -27,6 +27,7 @@ techno utilisé actullement
     │   │   ├── main.js
     │   │   ├── index.js
     │   │   ├── fonction.js
+    │   │   ├── comment.js
     │   │   └── color.js
     │   ├── image
     │   │   ├── ico.ico
@@ -50,6 +51,7 @@ techno utilisé actullement
 + nouvelle syntaxe d'affiche du code couleur
 + appréciation des couleur choisir par l'**IA**
 + conversion des couleurs
++ envoyer des commenter lié à une couleurs
 
 
 # <b style="text-transform:capitalize;">collaboration</b>
