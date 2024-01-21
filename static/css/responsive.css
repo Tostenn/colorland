@@ -163,4 +163,7 @@
     .avis form *{
         width: 100%;
     }
+    .avis form .fermer{
+        right: 0;
+    }
 }

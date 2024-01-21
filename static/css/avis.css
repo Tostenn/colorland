@@ -39,7 +39,7 @@
 }
 
 .avis .omb{
-    position: absolute;
+    position: fixed;
     z-index: 5;
     inset: 0;
     backdrop-filter: blur(12px) saturate(180%);
@@ -54,6 +54,7 @@
     transform: translate(-50%,-50%);
     width: 50%;
     text-align: left;
+    /* border: 1px solid; */
 }
 .avis form h3{
     color: var(--cl-blanc);
@@ -73,16 +74,44 @@
     border-radius: 20px;
     font-family: 'Courier New', Courier, monospace;
 }
+.avis form .fermer{
+    position: absolute;
+    top: 5px;
+    right: -75px;
+    width: initial;
+    color: var(--cl-blanc);
+    transition: all .3s ease-in-out;
+    background-color: transparent;                                  
+    border:2px solid var(--cl-red);
+}
+.avis form input,.avis form textarea{
+    background-color: transparent;
+    border: 2px solid var(--cl-blanc);
+    color: var(--cl-blanc);
+}
 .avis form textarea{
-    height: 150px;
+    height: 200px;
+}
+.avis form textarea::placeholder,
+.avis form input::placeholder{
+    color: var(--cl-blanc);
 }
 .avis form button{
     font-size: 18px;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--cl-green);
+    background-color: transparent;
     color: var(--cl-blanc);
+    transition: all .3s ease-in-out;
+    border:2px solid var(--cl-green);
 }
 
-
+.avis form button:hover,
+.avis form .fermer:hover{
+    transition: all .3s ease-in-out;
+    background-color: var(--cl-green);
+}
+.avis form .fermer:hover{
+    background-color: var(--cl-red);
+}
 /* fin section avis */
