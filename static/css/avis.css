@@ -3,7 +3,7 @@
 .avis{
     /* position: absolute; */
 }
-.avis
+
 .avis .but button{
     position: fixed;
     bottom: 20px;
@@ -11,12 +11,37 @@
     border-radius: 20px;
     font-size: 18px;
     font-family: 'Pacifico-Regular';
-    padding: 5px;
+    padding: 0.3em 0.5em;
+    color: var(--cl-blanc);
+    background-color: var(--cl-bleu) ;
     opacity: 0.5;
     transition: all .3s;
+    z-index: 2;
+    overflow: hidden;
 }
 .avis .but button:hover{
     transition: all .3s;
     opacity: 1;
 }
+
+.avis .but button::after{
+    position: absolute;
+    content: '';
+    top: -5px;
+    left: -10px;
+    width: 5px;
+    height: 120%;
+    background-color: var(--cl-blanc);
+    transform: rotate(30deg);
+    z-index: -1;
+}
+.avis .but button:hover::after{
+    transition: all 2.5s;
+    box-shadow: 0 0 10PX var(--cl-blanc) ;
+    left: 110%;
+}
+.avis form{
+    display: none;
+}
+
 /* fin section avis */

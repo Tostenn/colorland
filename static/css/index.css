@@ -112,7 +112,6 @@ main .header button{
     /* overflow: hidden; */
     border: 0;
     color: var(--cl-blanc);
-    /* display: none; */
 }
 .copier{
     position: absolute;
