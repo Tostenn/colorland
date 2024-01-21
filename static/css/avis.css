@@ -37,8 +37,13 @@
     box-shadow: 0 0 10PX var(--cl-blanc) ;
     left: 110%;
 }
-
-.avis .omb{
+.omb{
+    position: relative;
+    background-color: transparent;
+    display: none;
+}
+.avis .omb.active{
+    display: block;
     position: fixed;
     z-index: 5;
     inset: 0;
@@ -47,7 +52,6 @@
     background-color: rgba(17, 25, 40, 0.7);
 }
 .avis form{
-    /* display: none; */
     position: absolute;
     top: 30%;
     left: 50%;
@@ -81,7 +85,10 @@
     width: initial;
     color: var(--cl-blanc);
     transition: all .3s ease-in-out;
-    background-color: transparent;                                  
+    background-color: transparent;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
     border:2px solid var(--cl-red);
 }
 .avis form input,.avis form textarea{

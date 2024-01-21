@@ -1,5 +1,6 @@
 import { Color } from "./color.js";
 import { Popup } from "./pop.js";
+import { Comment } from "./comment.js";
 // import { Api } from "./api.js";
 // import fec from "./main.js";
 
@@ -30,3 +31,6 @@ const pop = new Popup(popParent,copyButton,color)
 //     // .then(l => l.json())
 //         .then(l => console.log(l))
 //     .catch(l => console.log(l))
+const sectionAvis = document.querySelector('.avis')
+
+const cmt = new Comment(sectionAvis)
