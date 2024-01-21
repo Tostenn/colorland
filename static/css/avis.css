@@ -52,13 +52,10 @@
     background-color: rgba(17, 25, 40, 0.7);
 }
 .avis form{
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    position: relative;
+    margin: 50px auto;
     width: 50%;
     text-align: left;
-    /* border: 1px solid; */
 }
 .avis form h3{
     color: var(--cl-blanc);
@@ -120,5 +117,12 @@
 }
 .avis form .fermer:hover{
     background-color: var(--cl-red);
+}
+.avis .erroForm{
+    transform: translateY(-10px);
+    color: var(--cl-red);
+    background-color: #0000004d;
+    margin-bottom: 0;
+    text-align: center;
 }
 /* fin section avis */

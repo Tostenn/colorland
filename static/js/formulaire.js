@@ -141,36 +141,40 @@ export class Form{
         if (len == 0) this.activeBtn()
     }
 }
-
+/**
+ * # gestion du formulaire
+ * ```
+ * element => HTMLElement
+ * option => Object{
+     * btn : bool,
+     * alert : bool,
+     * msg : string,
+     * file : bool,
+     * select : name,
+     * facul : [],
+     * msgPersoName : {nameInput:msg},
+     * msgPersoType : {nameInput:msg}
+ * }
+ * ```
+ */
 export class Forms{
     /**
      * 
-     * @param {HTMLDivElement} element 
-     * @param {Object} option {
-     * btn ;bool
-     * alert: bool
-     * msg : string
-     * file: bool
-     * select:name
-     * facul : []
-     * msgPersoName : {nameInput:msg}
-     * msgPersoType : {nameInput:msg}
-     * }
+     * @param {HTMLElement} element 
+     * @param {Object} option
      */
     constructor(element,option){
         this.element = element
-        this.child = Array.from(element.children)
+        this.child = Array.from(new FormData(element).keys())
         this.childs = []
         this.activeBtn = {}
         this.verifi= {}
-
         this.child.forEach(element => {
-            if (element.getAttribute('name')) {
-                this.childs.push(element)
-                this.verifi[element.getAttribute('name')] = true
-                this.activeBtn[element.getAttribute('name')] = false
-            }
+            this.childs.push(this.element.querySelector('[name="'+element+'"]'))
+            this.verifi[element] = true
+            this.activeBtn[element] = false
         });
+        
         // option par defaut
         this.option = Object.assign({},{
             btn:true,
@@ -265,7 +269,6 @@ export class Forms{
         if (!element.value){
             if (name == 'tel' && this.option.number){
                 if (!element.value.lenght >= this.option.number){
-                    console.log()
                     this.msgAlert(name)
                     return
                 }
@@ -291,17 +294,11 @@ export class Forms{
         let cpt = 0
         let count = 0
 
-        this.childs.forEach(element => {
-            
+        this.childs.forEach(element => {         
             if(!element.value)cpt++
             count++
         });
-        // for (const [key,value] of Object.entries(this.activeBtn)) {
-        //     if (!value) {
-        //         cpt++
-        //     }
-        //     count++
-        // }
+        
         if (cpt == 0 && count>0) {
             this.active()
             if (log){
@@ -317,6 +314,7 @@ export class Forms{
             }
             else return true
         }
+        else this.desativeBtn()
         return false
     }
 
@@ -340,8 +338,9 @@ export class Forms{
      * @param {string} name
      * @returns {string}
      */
-    msgPerso(name){ 
+    msgPerso(name){
         if (this.option.msgPersoName){
+
             if (name in this.option.msgPersoName)
                 return this.option.msgPersoName[name]
 
