@@ -7,6 +7,7 @@
 // afficher les commentaier
 
 import { Forms } from "./formulaire.js";
+import { Color } from "./color.js";
 
 /**
  * gestion des commaitaire
@@ -15,21 +16,27 @@ export class Comment{
     /**
      * 
      * @param {HTMLElement} parent
+     * @param {Color} color
      */
     CLASS_CSS = 'active'
-    constructor(parent){
+    constructor(parent,color){
         this.parent = parent
+        this.color = color
         this.butAvis = this.parent.querySelector('.comment')
+        
+        // actualiser la color ducommantaire
+        this.colorCmt = this.parent.querySelector('.clor')
         
         // ouvrir la section commentaire
         this.omb = this.parent.querySelector('.omb')
         this.butAvis.onclick = ()=>this.butAvisToggle()
         
-        this.butAvisToggle()
-
+        
         // fermer la section commentaire
         this.fermer = this.parent.querySelector('.fermer')
         this.fermer.onclick = ()=>this.butAvisToggle()
+        this.butAvisToggle()
+
 
         // validation des données
         this.form = this.parent.querySelector('form')
@@ -56,6 +63,8 @@ export class Comment{
 
     butAvisToggle(){
         this.omb.classList.toggle(this.CLASS_CSS)
+        this.colorCmt.style.backgroundColor = this.color.formateRGB()
+        // this.colorCmt.innerHTML = this.color.formateRGB()
     }
 
     validationForm(){

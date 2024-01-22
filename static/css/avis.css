@@ -75,6 +75,13 @@
     border-radius: 20px;
     font-family: 'Courier New', Courier, monospace;
 }
+.avis .clor{
+    background-color: var(--cl-green);
+    padding: .7em;
+    height: 60px;
+    color: #ffffff6b;
+    transition: background-color 0.3s;
+}
 .avis form .fermer{
     position: absolute;
     top: 5px;
@@ -109,6 +116,7 @@
     transition: all .3s ease-in-out;
     border:2px solid var(--cl-green);
 }
+
 
 .avis form button:hover,
 .avis form .fermer:hover{

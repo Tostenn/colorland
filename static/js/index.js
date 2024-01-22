@@ -33,4 +33,4 @@ const pop = new Popup(popParent,copyButton,color)
 //     .catch(l => console.log(l))
 const sectionAvis = document.querySelector('.avis')
 
-const cmt = new Comment(sectionAvis)
+const cmt = new Comment(sectionAvis,color)
