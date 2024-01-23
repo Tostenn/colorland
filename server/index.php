@@ -14,11 +14,11 @@ header('Content-Type: application/json');
 
 if (!(
     key_exists('set-color',$_GET) ||
-    key_exists('get-color',$_GET) || 
-    key_exists('cmmt_',$_GET) || 
+    key_exists('get-color',$_GET) ||
+    key_exists('cmmt_',$_GET) ||
     key_exists('get-color-all',$_GET)
 ))
-die('not key color');
+die(json_encode(['reponse'=>'not key color']));
 
 // connection a la base de donnés
 $bd = new datacolor();
@@ -48,7 +48,8 @@ elseif (key_exists('get-color-all',$_GET)){
 // enregistrer un commentaire
 elseif (key_exists('cmmt_',$_GET)){
     unset($_GET['cmmt_']);
-    echo json_encode($_GET);
+    $res = $bd->saveCmt($_GET);
+    echo json_encode(['status' => $res]);
 }
 /*
 get-color : retourne le nombre de copi de la color si elle existe sinon return none

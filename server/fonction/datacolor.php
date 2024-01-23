@@ -1,6 +1,5 @@
 <?php
 
-
 require_once 'fonction/fonction.php';
 
 use function Kouya\{dataBase};
@@ -58,7 +57,26 @@ class DataColor{
         return $this->bd->query($cmd)->fetchAll();
     }
 
+    /**
+     * enregistre un commentaire
+     * @param array $data
+     */
     public function saveCmt($data) {
-        
+        // vérification de la color
+        $cmd = "select nom from colors where nom=\"{$data['nom']}\"";
+        $cmd = $this->bd->query($cmd)->fetch();
+        if (empty($cmd['nom'])){
+            $cmd = "insert into colors (nom,compter) values(:color,0)";
+            $cmd = $this->bd->prepare($cmd);
+            $cmd->execute(['color'=>$data['nom']]);
+        }
+        // enregistrement de commentaire
+        $cmd = "insert into avis (username,cmmt,nom) values(:username,:cmmt,:nom)";
+        $cmd = $this->bd->prepare($cmd);
+        return $cmd->execute([
+            'username'=>$data['username'],
+            'cmmt'=>$data['cmmt'],
+            'nom'=>$data['nom']
+        ]);
     }
 }
