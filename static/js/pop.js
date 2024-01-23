@@ -2,7 +2,6 @@ import { Color } from "./color.js";
 import { Api } from "./api.js";
 
 
-const api = new Api() 
 /**
  * lorsqu'on click sur copy on affiche une pop  ok
  * il faut récuperer le nombre de pop           ok

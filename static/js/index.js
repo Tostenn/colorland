@@ -27,9 +27,10 @@ const pop = new Popup(popParent,copyButton,color)
 // pop.newpop([100,30,200,5.80011111])
 
 
-// fec('http://localhost:8080/?color=color',{mode:'cors'})
+// fec('http://localhost:8080/?get-color-all=true')
 //     // .then(l => l.json())
-//         .then(l => console.log(l))
+//     // .then(l => l.text())
+//     .then(l => console.log(l))
 //     .catch(l => console.log(l))
 const sectionAvis = document.querySelector('.avis')
 

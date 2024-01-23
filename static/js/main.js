@@ -8,9 +8,8 @@
  */
 export default async function fec(url,body= false) {
     const head = {
-        // 'Accept' : 'application/json',
+        'Accept' : 'application/json',
         // 'Content-Type':"application/json",
-
     }
     let r
     if(!body) {
@@ -27,11 +26,8 @@ export default async function fec(url,body= false) {
         )
     }
     if (r.ok){
-        try {
-            return r.json()
-        } catch (error) {
-            return true
-        }
+        try {return r.json()}
+        catch (error) {return r.text()}
     }
     throw new Error('serveur non present')
 }
@@ -64,5 +60,4 @@ export function head(url) {
     meta.setAttribute('http-equiv',"Refresh")
     meta.setAttribute( 'content',"1; url="+url)
     h.appendChild(meta)
-
 }

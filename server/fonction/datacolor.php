@@ -43,18 +43,22 @@ class DataColor{
     public function data_all(mixed $limit, mixed $sub, mixed $inf) {
         $cmd = "select * from colors ";
         if ($sub) {
-            echo 'sub <br>';
+            // echo 'sub <br>';
             $cmd .= "where compter > $sub ";
         }
         elseif ($inf){
-            echo 'sub <br>';
+            // echo 'sub <br>';
             $cmd .= "where compter < $inf ";
         }
         if ($limit) {
-            echo "limit $limit <br>";
+            // echo "limit $limit <br>";
             $cmd .= "limit $limit";
         }
-        echo $cmd;
+        // echo $cmd;
         return $this->bd->query($cmd)->fetchAll();
+    }
+
+    public function saveCmt($data) {
+        
     }
 }

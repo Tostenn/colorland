@@ -8,11 +8,12 @@
 
 import { Forms } from "./formulaire.js";
 import { Color } from "./color.js";
+import { Api } from "./api.js";
 
 /**
  * gestion des commaitaire
  */
-export class Comment{
+export class Comment extends Api{
     /**
      * 
      * @param {HTMLElement} parent
@@ -20,6 +21,7 @@ export class Comment{
      */
     CLASS_CSS = 'active'
     constructor(parent,color){
+        super()
         this.parent = parent
         this.color = color
         this.butAvis = this.parent.querySelector('.comment')
@@ -31,12 +33,10 @@ export class Comment{
         this.omb = this.parent.querySelector('.omb')
         this.butAvis.onclick = ()=>this.butAvisToggle()
         
-        
         // fermer la section commentaire
         this.fermer = this.parent.querySelector('.fermer')
         this.fermer.onclick = ()=>this.butAvisToggle()
         this.butAvisToggle()
-
 
         // validation des données
         this.form = this.parent.querySelector('form')
@@ -68,6 +68,13 @@ export class Comment{
     }
 
     validationForm(){
-        console.log(this.form.verifiSubmit())
+        const dataUser = this.form.verifiSubmit(true)
+        if (dataUser){
+            dataUser['nom'] = this.color.formateRGB()
+            console.log(dataUser)
+            super.pushCmt(dataUser)
+                .then(l=> console.log(l))
+        }
+
     }
 }

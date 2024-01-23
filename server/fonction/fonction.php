@@ -28,7 +28,7 @@ use \PDO;
     * connection direct a la base de donnée
     * @return PDO 
     */
-    function dataBase($name='color') {
+    function dataBase($name='colors') {
         
         // $server = 'localhost';
         // $user = 'id21230356_projet';
