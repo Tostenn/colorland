@@ -1,8 +1,8 @@
-import { Color } from "./color.js";
-import { Popup } from "./pop.js";
-import { Comment } from "./comment.js";
-// import { Api } from "./api.js";
-// import fec from "./main.js";
+import { Color } from "./dependance/color.js";
+import { Popup } from "./dependance/pop.js";
+import { Comment } from "./dependance/comment.js";
+// import { Api } from "./dependance/api.js";
+// import fec from "./dependance/main.js";
 
 
 const message = [
