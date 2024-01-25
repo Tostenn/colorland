@@ -9,6 +9,7 @@
 import { Forms } from "./formulaire.js";
 import { Color } from "./color.js";
 import { Api } from "./api.js";
+import { Notif } from "./notif.js";
 
 /**
  * gestion des commaitaire
@@ -18,11 +19,13 @@ export class Comment extends Api{
      * 
      * @param {HTMLElement} parent
      * @param {Color} color
+     * @param {Notif} notif
      */
     CLASS_CSS = 'active'
-    constructor(parent,color){
+    constructor(parent,color,notif){
         super()
         this.parent = parent
+        this.notif = notif
         this.color = color
         this.butAvis = this.parent.querySelector('.comment')
         
@@ -73,7 +76,13 @@ export class Comment extends Api{
             dataUser['nom'] = this.color.formateRGB()
             console.log(dataUser)
             super.pushCmt(dataUser)
-                .then(l=> console.log(l))
+                .then(() => this.notif.new('commentaire bien envoyer :)','cl-v'))
+                .catch(() => this.notif.new(
+                    'une erreur c\'est produit lors de l\'envoie du commentaire !\
+                    <br> <strong> veuillez résseyer dans quelque instant </strong> !!',
+                    '',
+                    7
+                ))
         }
 
     }

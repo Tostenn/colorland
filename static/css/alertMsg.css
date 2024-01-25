@@ -32,11 +32,8 @@
     animation: des-alert .5s 1 forwards;
 }
 @keyframes des-alert {
-    100%{
-        opacity: 0;
-        transform: translatey(50px);
-
-    }
+    0%{transform: translatey(50px);}
+    100%{opacity: 0;}
 }
 .alert .croix{
     height: 22px;
@@ -56,5 +53,5 @@
     transform: rotate(80deg);
 }
 
-.cl-r{background-color: var(--cl-red);}
-.cl-v{background-color: var(--cl-green);}
+.cl-r{background-color: var(--cl-red) !important;}
+.cl-v{background-color: var(--cl-green) !important;}
