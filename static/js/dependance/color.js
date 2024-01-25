@@ -81,7 +81,7 @@ export class Color{
         const value = el.value
         const name = el.getAttribute('name')
         this.rgb[name] = name == 'op'?
-        this.rgb.op =this.parseop(value) : value
+            this.parseop(value) : value
     }
     /**
      * insert une nouvelle couleur
@@ -142,10 +142,12 @@ export class Color{
         for (const name of this.dataform.keys()) {
             const ch = this.inputAll.filter(el =>
                 el.getAttribute('name') == name
-            )
-            if (ch.length){
-                ch[0].value = name == 'op'? this.parseop(this.rgb[name],true) : this.rgb[name]
+            )[0]
+            if (name == 'op') {
+                ch.value = this.parseop(this.rgb[name],true)
+                ch.nextElementSibling.innerHTML = ch.value + '%'
             }
+            else ch.value = this.rgb[name]
         }
     }
 }

@@ -24,7 +24,7 @@ export class Notif{
      */
     new(msg,clas="",t=3){
         t*=1000
-        console.log(t);
+        
         const article = document.createElement('article')
         article.append(this.template.content.cloneNode(true))
 
@@ -33,8 +33,7 @@ export class Notif{
         
         // message de l'alert
         if (clas) article.classList.add(clas)
-        
-        console.log(article.innerHTML)
+
         // fermer l'alert
         article.querySelector('.croix').onclick = ()=> this.destroy(article)
         setTimeout(() => {

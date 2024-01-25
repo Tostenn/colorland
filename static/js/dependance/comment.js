@@ -39,7 +39,7 @@ export class Comment extends Api{
         // fermer la section commentaire
         this.fermer = this.parent.querySelector('.fermer')
         this.fermer.onclick = ()=>this.butAvisToggle()
-        this.butAvisToggle()
+        // this.butAvisToggle()
 
         // validation des données
         this.form = this.parent.querySelector('form')
@@ -84,6 +84,5 @@ export class Comment extends Api{
                     7
                 ))
         }
-
     }
 }
