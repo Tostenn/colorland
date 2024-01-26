@@ -36,5 +36,4 @@ const notif = new Notif(sectionAlert)
 //     .then(l => console.log(l))
 //     .catch(l => console.log(l))
 const sectionAvis = document.querySelector('.avis')
-
 const cmt = new Comment(sectionAvis,color,notif)

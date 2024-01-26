@@ -166,4 +166,15 @@
     .avis form .fermer{
         right: 0;
     }
+    .cmt article{
+        flex: 1 0 100%;
+    }    
+    
+}
+
+@media screen and (min-width:1024px) {
+    .cmt article{
+        flex: 1 0 32.5%;
+    }    
+
 }
