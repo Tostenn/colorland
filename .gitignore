@@ -1,2 +1,4 @@
 *.txt
 # fonction/fonction.php
+i.*
+.gitignore

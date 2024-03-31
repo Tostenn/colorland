@@ -12,10 +12,12 @@ header('Content-Type: application/json');
 //     'limit'=> 5,
 // ];
 
+
 if (!(
     key_exists('set-color',$_GET) ||
     key_exists('get-color',$_GET) ||
     key_exists('cmmt_',$_GET) ||
+    key_exists('get-cmt-all',$_GET) ||
     key_exists('get-color-all',$_GET)
 ))
 die(json_encode(['reponse'=>'not key color']));
@@ -38,7 +40,7 @@ elseif (key_exists('set-color',$_GET)){
 // récupérerer toute les couleurs
 elseif (key_exists('get-color-all',$_GET)){
 
-    echo json_encode($bd->data_all(
+    echo json_encode($bd->getColorAll(
         @$_GET['limit'],
         @$_GET['sub'],
         @$_GET['inf'],
@@ -51,6 +53,12 @@ elseif (key_exists('cmmt_',$_GET)){
     $res = $bd->saveCmt($_GET);
     echo json_encode(['status' => $res]);
 }
+
+// récupérerer toute les commantaires
+elseif (key_exists('get-cmt-all',$_GET)){
+    echo json_encode($bd->getCmtAll());
+}
+
 /*
 get-color : retourne le nombre de copi de la color si elle existe sinon return none
 set-color : ajout une nouvelle color et return 1

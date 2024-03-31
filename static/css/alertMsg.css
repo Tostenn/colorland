@@ -52,6 +52,3 @@
     border-radius: inherit;
     transform: rotate(80deg);
 }
-
-.cl-r{background-color: var(--cl-red) !important;}
-.cl-v{background-color: var(--cl-green) !important;}

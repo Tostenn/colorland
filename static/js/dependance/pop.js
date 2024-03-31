@@ -1,5 +1,6 @@
 import { Color } from "./color.js";
 import { Api } from "./api.js";
+import { Notif } from "./notif.js";
 
 
 /**
@@ -181,10 +182,16 @@ export class Popup extends Api{
         super.setColor(color)
             .then( () => {
                 super.getColor(color)
-                .then( l => {
-                        countcolor.innerHTML = l?.compter
-                    })
-                    .catch(l => console.log(l))
+                    .then( l => {
+                        // throw Notif
+                            countcolor.innerHTML = l?.compter
+                        })
+                    .catch(() => this.notif.new(
+                        'une erreur c\'est produit côté serveur !\
+                        <br> <strong> veuillez résseyer dans quelque instant </strong> !!',
+                        '',
+                        7
+                    ))
             })
             .catch(l => console.log(l))
     }

@@ -1,8 +1,6 @@
 import { Color } from "./dependance/color.js";
 import { Popup } from "./dependance/pop.js";
 import { Comment } from "./dependance/comment.js";
-// import { Api } from "./dependance/api.js";
-// import fec from "./dependance/main.js";
 import { Notif } from "./dependance/notif.js";
 
 
@@ -19,7 +17,7 @@ const form = document.getElementById('ch-color')
 form.addEventListener('submit',e => e.preventDefault())
 
 const color = new Color(form)
-color.insert([260,25,284,40])
+color.insert([260,25,284,.5])
 
 const popParent = document.querySelector('.ppoopp')
 const copyButton = form.querySelector('.copier')
@@ -36,4 +34,5 @@ const notif = new Notif(sectionAlert)
 //     .then(l => console.log(l))
 //     .catch(l => console.log(l))
 const sectionAvis = document.querySelector('.avis')
-const cmt = new Comment(sectionAvis,color,notif)
+const sectionCmt = document.querySelector('.cmt')
+const cmt = new Comment(sectionAvis,sectionCmt,color,notif)

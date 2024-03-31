@@ -1,6 +1,6 @@
 <?php
 
-require_once 'fonction/fonction.php';
+require_once 'fonction.php';
 
 use function Kouya\{dataBase};
 
@@ -39,7 +39,7 @@ class DataColor{
     /**
      * récupérer tout les donnés
      */
-    public function data_all(mixed $limit, mixed $sub, mixed $inf) {
+    public function getColorAll(mixed $limit, mixed $sub, mixed $inf) {
         $cmd = "select * from colors ";
         if ($sub) {
             // echo 'sub <br>';
@@ -71,12 +71,22 @@ class DataColor{
             $cmd->execute(['color'=>$data['nom']]);
         }
         // enregistrement de commentaire
-        $cmd = "insert into avis (username,cmmt,nom) values(:username,:cmmt,:nom)";
+        $cmd = "insert into avis (username,cmmt,nom,date_c,heure_c) values(:username,:cmmt,:nom,:date_c,:heure_c)";
         $cmd = $this->bd->prepare($cmd);
         return $cmd->execute([
-            'username'=>$data['username'],
-            'cmmt'=>$data['cmmt'],
-            'nom'=>$data['nom']
+            'username' => htmlentities($data['username']),
+            'cmmt' => htmlentities($data['cmmt']),
+            'nom' => htmlentities($data['nom']),
+            'date_c' => date('Y-m-d'),
+            'heure_c' => date('h:m:s')
         ]);
+    }
+
+    /**
+     * récupérerer tout les commentaire
+     */
+    public function getCmtAll(){
+        $cmd = "SELECT * FROM avis,colors WHERE avis.nom = colors.nom ORDER BY colors.compter DESC";
+        return $this->bd->query($cmd)->fetchAll();
     }
 }

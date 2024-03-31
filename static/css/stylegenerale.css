@@ -19,3 +19,5 @@ button{
 .lower{text-transform: lowercase;}
 .curseurPointeur{cursor: pointer;}
 .borderradus{border-radius: 20px;}
+.cl-r{background-color: var(--cl-red) !important;}
+.cl-v{background-color: var(--cl-green) !important;}

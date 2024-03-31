@@ -28,15 +28,15 @@ use \PDO;
     * connection direct a la base de donnée
     * @return PDO 
     */
-    function dataBase($name='colors') {
-        
-        // $server = 'localhost';
-        // $user = 'id21230356_projet';
-        // $password = 'Project12345.';
-        // $name = 'id21230356_proceduredeconsignation';
+    function dataBase($name='color') {
         
         $server = 'localhost';
-        $user = 'root';
-        $password = '';
+        $user = 'id21551955_qsqsqs';
+        $password = 'Color123.';
+        $name = 'id21551955_color';
+        
+        // $server = 'localhost';
+        // $user = 'root';
+        // $password = '';
         return connBaseData($server,$user,$password,$name);
     }

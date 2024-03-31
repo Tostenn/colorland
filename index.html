@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="stylesheet" href="static/css/alertMsg.css">
     <link rel="stylesheet" href="static/css/responsive.css">
-    <link rel="icon" type="image/x-icon" href="ico.ico">
+    <link rel="icon" type="image/x-icon" href="static/image/ico.ico">
 </head>
 <body>
     <header>
@@ -129,91 +129,38 @@
 
     <section class="cmt">
         <div class="el">
-        <div class="diapo">
-            <article>
-                <div class="h">
-                    <div class="pp"></div>
-                    <span>username</span>
-                </div>
-                <div class="body">
-                    Lorem ipsum dolor sit amet consectetur,m ullore maxime. udis aliquam, ducimus sed ea doloremque.
-                </div>
-                <div class="footer">
-                    <div class="pop-text dn">
-                        <div class="rgb">
-                            <span class="rgb-content">rgba(
-                                <span class="c-r">01</span>,
-                                <span class="c-g">574</span>,
-                                <span class="c-b">8456</span>,
-                                <span class="c-op">1</span>
-                            )</span>
-                            <span class="rgb-complet dn"></span>
+            <template id="sctShow">
+                <article>
+                    <div class="h">
+                        <div class="pp"></div>
+                        <div class="info">
+                            <span class="name">username</span>
+                            <span class="date">2222-22-22 22:22:22</span>
                         </div>
-                        <button class="icon">
-                            <img src="static/image/copier-alt.png" height="100%" alt="">
-                        </button>
                     </div>
-                    <div class="cpt">copier <span>x</span> fois</div>
-                </div>
-            </article>
-            <article>
-                <div class="h">
-                    <div class="pp"></div>
-                    <span>username</span>
-                </div>
-                <div class="body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, quae modi. Nisi vitae, iusto repudiandae nesciunt voluptate sunt tempora. Suscipit, recusandae! Quibusdam quaerat accusantium assumenda, quod perferendis vitae esse quas.
-                    Explicabo est quibusdam laboriosam aut doloremque commodi, magni ducimus recusandae cupiditate unde exercitationem eveniet fuga autem quod debitis dignissimos numquam. Veniam quos suscipit, delectus eaque voluptatum quaerat ducimus obcaecati debitis.
-                    Neque necessitatibus, quisquam rerum nemo est ab eius, itaque officiis tempore voluptate sapiente quibusdam id fugiat, quo qui doloribus expedita labore exercitationem quos modi repellat ut cumque. Facilis, delectus ex?
-                </div>
-                <div class="footer">
-                    <div class="pop-text dn">
-                        <div class="rgb">
-                            <span class="rgb-content">rgba(
-                                <span class="c-r">01</span>,
-                                <span class="c-g">574</span>,
-                                <span class="c-b">8456</span>,
-                                <span class="c-op">1</span>
-                            )</span>
-                            <span class="rgb-complet dn"></span>
+                    <div class="body">
+                        <pre></pre>
+                    </div>
+                    <div class="footer">
+                        <div class="pop-text dn">
+                            <div class="rgb">
+                                <span class="rgb-content">rgba(
+                                    <span class="c-r">01</span>,
+                                    <span class="c-g">574</span>,
+                                    <span class="c-b">8456</span>,
+                                    <span class="c-op">1</span>
+                                )</span>
+                                <span class="rgb-complet dn"></span>
+                            </div>
+                            <button class="icon">
+                                <img src="static/image/copier-alt.png" height="100%" alt="">
+                            </button>
                         </div>
-                        <button class="icon">
-                            <img src="static/image/copier-alt.png" height="100%" alt="">
-                        </button>
+                        <div class="cpt">copier <span>x</span> fois</div>
                     </div>
-                    <div class="cpt">copier <span>x</span> fois</div>
-                </div>
-            </article>
-            <article>
-                <div class="h">
-                    <div class="pp"></div>
-                    <span>username</span>
-                </div>
-                <div class="body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, quae modi. Nisi vitae, iusto repudiandae nesciunt voluptate sunt tempora. Suscipit, recusandae! Quibusdam quaerat accusantium assumenda, quod perferendis vitae esse quas.
-                    Explicabo est quibusdam laboriosam aut doloremque commodi, magni ducimus recusandae cupiditate unde exercitationem eveniet fuga autem quod debitis dignissimos numquam. Veniam quos suscipit, delectus eaque voluptatum quaerat ducimus obcaecati debitis.
-                    Neque necessitatibus, quisquam rerum nemo est ab eius, itaque officiis tempore voluptate sapiente quibusdam id fugiat, quo qui doloribus expedita labore exercitationem quos modi repellat ut cumque. Facilis, delectus ex?
-                </div>
-                <div class="footer">
-                    <div class="pop-text dn">
-                        <div class="rgb">
-                            <span class="rgb-content">rgba(
-                                <span class="c-r">01</span>,
-                                <span class="c-g">574</span>,
-                                <span class="c-b">8456</span>,
-                                <span class="c-op">1</span>
-                            )</span>
-                            <span class="rgb-complet dn"></span>
-                        </div>
-                        <button class="icon">
-                            <img src="static/image/copier-alt.png" height="100%" alt="">
-                        </button>
-                    </div>
-                    <div class="cpt">copier <span>x</span> fois</div>
-                </div>
-            </article>
-          
-        </div>
+                </article>
+            </template>
+            <!-- <div class="diapo"></div> -->
         </div>
 
     </section>
@@ -259,7 +206,5 @@
     </footer>
 
     <script type="module" src="static/js/index.js"></script>
-    <!-- <script type="module" src="static/js/comment.js"></script> -->
-
 </body>
 </html>

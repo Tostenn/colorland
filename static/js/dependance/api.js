@@ -3,8 +3,9 @@ import fec from "./main.js";
 import {encodeurls} from "./fonction.js";
 
 export class Api{
-    // host = 'https://colorland.000webhostapp.com/'
-    host = 'http://localhost:8080/'
+    host = 'https://colorland.000webhostapp.com/'
+    // host = 'http://localhost:8080/server/index.php'
+    // host = 'http://192.168.157.211:8080/server/index.php'
     url = {
         'get': this.host
     }
@@ -25,7 +26,7 @@ export class Api{
      * @param {number} sub
      * @param {number} inf
      */
-    getDatas(limit = "",sub = "",inf= ''){
+    getColorAll(limit = "",sub = "",inf= ''){
         const data = {
             limit:limit,
             sub:sub,
@@ -40,5 +41,8 @@ export class Api{
     pushCmt(data){
         data['cmmt_'] =true
         return fec(encodeurls(this.url.get,data))
+    }
+    getCmtAll(){
+        return fec(encodeurls(this.url.get,{'get-cmt-all':true}))
     }
 }

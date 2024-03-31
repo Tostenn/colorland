@@ -7,7 +7,6 @@ import { couleurs } from "./main.js";
  * appplique les modification -------
  * des champs sue l'element color     ok
  */
-
 export class Color{
     /**
      * @param {HTMLElement} form 
@@ -123,15 +122,14 @@ export class Color{
         rgbx = rgbx ? rgbx : this.rgb
         let colorrgb = 'rgba('
         let i = 0
+        console.clear()
         for (const vaule in rgbx) {
-            colorrgb+=  i == 3? this.parseop(rgbx[vaule].toFixed(2))+',' :
-             rgbx[vaule] + ','
+            colorrgb += i == 3 ? this.parseop(rgbx[vaule].toFixed(2))+',' :
+                rgbx[vaule] + ','
             i++
-           
         }
         colorrgb = colorrgb.slice(0,colorrgb.length-1)
         colorrgb += ')'
-        // console.log(colorrgb,colorrgb.length);
         return colorrgb
     }
     applicolor(){
