@@ -103,8 +103,8 @@ export class Comment extends Api{
         
         super.getCmtAll()
         .then( comments => {
-            const diapo = document.createElement('div')
-            diapo.setAttribute('class','diapo')
+            const diapo = this.parentShow.querySelector('.diapo')
+
             for (const comment of comments) {
                 const article = this.template.content.cloneNode(true)
 
@@ -122,15 +122,18 @@ export class Comment extends Api{
                 article.querySelector('.cpt span').innerHTML = comment.compter
                 diapo.appendChild(article)
             }
-            this.parentShow.querySelector('.el').appendChild(diapo)
+            
             // ajout du commentaire
             const carosel = new Carosel(diapo,{
                 visible:1,
                 defile:1,
                 margin:20,
                 reponse:true,
+                left: this.parentShow.querySelector('.left'),
+                right: this.parentShow.querySelector('.right'),
+                move:['.left','.right'],
                 time:3.5,
-                auto:true
+                // auto:true
             })
             // new CaroselTouch(carosel)
         })

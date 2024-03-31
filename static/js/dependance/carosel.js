@@ -12,6 +12,11 @@ export class Carosel{
 
     compter = 0
 
+    /**
+     * 
+     * @param {HTMLElement} element 
+     * @param {Object} option 
+     */
     constructor(element,option){
 
         this.element = element
@@ -30,8 +35,8 @@ export class Carosel{
         
         try {
             // les bouton gautche et droite
-            this.option.gauche.onclick= ()=> this.nextL()
-            this.option.droit.onclick= ()=> this.nextR()
+            this.option.left.onclick = ()=> this.nextL()
+            this.option.right.onclick = ()=> this.nextR()
         } catch (error) {}
         
         // la taille d'un element

@@ -211,6 +211,7 @@
     
 }
 .cmt .el{
+    position: relative;
     overflow: hidden;
 }
 .diapo .footer .pop-text {
@@ -230,6 +231,26 @@
     text-align: right;
     width: 95%;
     font-family: 'Courier New', Courier, monospace;
+}
+.cmt .left,.right{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    background-image: url("/static/image/left.png");
+    z-index: 3;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+.cmt .left{
+    left: -20px;
+}
+.cmt .right{
+    right: -20px;
+    background-image: url("/static/image/right.png");
 }
 
 /* fin section avis */

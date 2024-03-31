@@ -122,7 +122,6 @@ export class Color{
         rgbx = rgbx ? rgbx : this.rgb
         let colorrgb = 'rgba('
         let i = 0
-        console.clear()
         for (const vaule in rgbx) {
             colorrgb += i == 3 ? this.parseop(rgbx[vaule].toFixed(2))+',' :
                 rgbx[vaule] + ','
