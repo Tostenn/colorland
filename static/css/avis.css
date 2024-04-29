@@ -239,7 +239,7 @@
     width: 70px;
     height: 70px;
     background-color: #fff;
-    background-image: url("/static/image/left.png");
+    background-image: url("static/image/left.png");
     z-index: 3;
     background-size: cover;
     background-position: center;
