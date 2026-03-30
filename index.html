@@ -210,5 +210,33 @@
     </footer>
 
     <script type="module" src="static/js/index.js"></script>
+     <script src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/build/techcard.js"></script>
+    <script>
+      // Instance globale pour la démo
+            window.onload = () => {
+                
+ const myCard = new window.TechCard({
+        card: "solo-mini", // "solo" ou "solo-mini"
+        theme: "light",
+        user: {
+          name: "Kouya Tosten",
+          role: "Développeur Full-Stack | IA & Automatisation",
+          // bio: "Développeur passionné par Laravel, React et l'ingénierie logicielle. Je construis des outils pour simplifier le web.",
+          avatar:
+            "https://emploirapide.net/static/photos/471c489e-7570-4336-8241-f68e871ff2c9_photo.jpg",
+          social_long: true,
+          socials: [
+            { name: "GitHub", url: "https://github.com/Tostenn" },
+            {
+              name: "LinkedIn",
+              url: "https://www.linkedin.com/in/tosten-kouya/",
+            },
+          ],
+        },
+       
+      })
+            }
+    </script>
+    
 </body>
 </html>
